@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import config
+
 # -----------------------------
 # Load Dataset
 # -----------------------------
@@ -58,7 +60,7 @@ if "CGPA" in df.columns:
     plt.ylabel("Frequency")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Histogram_CGPA.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -69,7 +71,7 @@ if "CGPA" in df.columns:
     plt.title("Box Plot of CGPA")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"BoxPlot_CGPA.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -81,7 +83,7 @@ if "CGPA" in df.columns:
     plt.xlabel("CGPA")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Density_CGPA.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -92,7 +94,7 @@ if "CGPA" in df.columns:
     plt.title("Violin Plot of CGPA")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Violin_CGPA.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -105,7 +107,7 @@ if "PlacementStatus" in df.columns:
     plt.ylabel("Number of Students")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Placement_CountPlot.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -121,7 +123,7 @@ if "Gender" in df.columns:
     plt.ylabel("")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Gender_PieChart.png"))
-    plt.show()
+    plt.close()
 
 # ==========================================================
 #                 BIVARIATE ANALYSIS
@@ -139,7 +141,7 @@ if "CGPA" in df.columns and "AttendancePercent" in df.columns:
     plt.title("CGPA vs AttendancePercent")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Scatter_CGPA_Attendance.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -154,7 +156,7 @@ if "CGPA" in df.columns and "AttendancePercent" in df.columns:
     plt.title("Regression Plot")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Regression_CGPA_Attendance.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -169,7 +171,7 @@ if "PlacementStatus" in df.columns and "CGPA" in df.columns:
     plt.title("CGPA vs Placement Status")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"CGPA_vs_Placement_BoxPlot.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -184,7 +186,7 @@ if "PlacementStatus" in df.columns and "CGPA" in df.columns:
     plt.title("CGPA vs Placement Status")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"CGPA_vs_Placement_Violin.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -199,7 +201,7 @@ if "Gender" in df.columns and "PlacementStatus" in df.columns:
     plt.title("Gender vs Placement Status")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Gender_vs_Placement_CountPlot.png"))
-    plt.show()
+    plt.close()
 
 # ----------------------------------------------------------
 
@@ -218,7 +220,7 @@ if "Gender" in df.columns and "PlacementStatus" in df.columns:
     plt.ylabel("Count")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Gender_vs_Placement_StackedBar.png"))
-    plt.show()
+    plt.close()
 
 # ==========================================================
 # Correlation Heatmap
@@ -236,7 +238,7 @@ if not numeric_df.empty:
     plt.title("Correlation Heatmap")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR,"Correlation_Heatmap.png"))
-    plt.show()
+    plt.close()
 
 print("\n" + "=" * 60)
 print("EDA COMPLETED SUCCESSFULLY")
