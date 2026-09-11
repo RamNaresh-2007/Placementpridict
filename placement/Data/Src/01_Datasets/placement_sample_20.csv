@@ -1,0 +1,21 @@
+StudentID,Gender,City,CollegeTier,Stream,Specialisation,Hostel,HistoryOfBacklogs,SGPA_Sem1,SGPA_Sem2,SGPA_Sem3,SGPA_Sem4,SGPA_Sem5,SGPA_Sem6,SGPA_Sem7,SGPA_Sem8,CGPA,AttendancePercent,Internships,Projects,Workshops,Certifications,Publications,AptitudeTestScore,SoftSkillsRating,CodingTestScore,MockInterviewScore,ExtraCurricular,CGPA_Tier,PlacementStatus,IsAnomaly,Salary Package
+33554,Male,Chennai,Tier2,Mechanical,Embedded,Yes,No,8.6,8.69,9.19,8.47,9.04,8.7,8.97,9.13,8.79,93.6,2,4,3.0,3,1,83.2,3.5,,76.8,0,High,1,0,18.48
+9428,Female,Pune,Tier2,ECE,Networking,No,No,5.19,4.71,4.76,4.64,4.83,4.67,5.19,4.68,4.78,67.9,0,0,1.0,1,0,37.0,1.7,24.8,28.3,1,Low,0,0,0.0
+200,Female,Bangalore,Tier2,ECE,Networking,No,No,6.4,6.94,6.82,6.38,6.92,6.79,7.29,7.28,6.81,77.7,1,2,2.0,2,0,73.4,3.0,60.1,45.5,1,Mid,0,0,0.0
+12448,Male,Mumbai,Tier3,ECE,DataScience,Yes,Yes,5.91,6.44,5.58,5.82,5.7,5.68,6.18,5.35,5.91,61.8,0,1,1.0,1,0,56.0,1.3,22.5,31.9,1,Low,0,0,0.0
+39490,Male,Delhi,Tier2,Mechanical,AI,No,No,5.72,5.55,6.38,6.2,5.79,5.78,5.75,5.47,5.89,94.1,1,2,2.0,2,0,60.5,3.0,59.2,36.1,0,Low,1,0,3.81
+42725,Male,Bangalore,Tier2,EE,AI,No,No,5.82,5.89,6.06,5.94,6.2,5.85,6.4,6.44,6.05,71.6,0,2,2.0,1,0,67.7,3.2,51.4,59.8,0,Low,0,0,0.0
+10823,Female,Chennai,Tier2,ECE,DataScience,No,No,6.94,6.99,6.77,6.98,6.96,7.27,6.66,6.72,7.07,51.6,0,1,1.0,1,0,45.1,1.7,26.2,29.7,0,Mid,0,0,0.0
+49499,Female,Jaipur,Tier1,Mechanical,Networking,Yes,No,6.81,5.9,6.36,6.57,6.68,6.38,6.13,6.79,6.37,79.1,1,2,1.0,2,1,68.1,3.3,58.7,48.5,1,Low,0,0,0.0
+4145,Male,Pune,Tier3,Mechanical,Networking,No,Yes,4.7,5.12,4.77,4.86,4.83,4.94,4.39,4.87,4.93,54.5,1,1,1.0,0,0,51.5,1.9,25.4,22.8,0,Low,0,0,0.0
+36959,Male,Bangalore,Tier2,ECE,DataScience,No,No,7.7,7.55,7.06,7.61,7.54,7.15,7.84,7.96,7.5,60.6,2,4,3.0,2,2,89.4,4.2,79.4,61.6,1,Mid,1,0,8.58
+43107,Male,Ahmedabad,Tier2,ECE,DataScience,No,No,9.1,9.02,9.46,9.48,9.66,9.62,9.69,9.48,9.72,80.8,3,5,3.0,4,1,98.5,3.2,95.7,70.1,1,High,1,1,25.14
+38696,Male,Hyderabad,Tier3,ECE,DataScience,No,Yes,6.39,6.47,6.55,6.35,5.76,6.58,6.31,6.32,6.29,60.5,0,1,0.0,0,0,51.5,2.3,31.7,28.0,0,Low,0,0,0.0
+6189,Male,Kolkata,Tier2,IT,DataScience,Yes,No,8.39,8.78,8.51,8.58,7.92,8.74,8.86,8.41,8.5,85.2,2,2,2.0,1,2,79.7,4.8,91.6,68.1,1,High,1,0,22.04
+1415,Male,Bangalore,Tier3,ECE,Networking,No,Yes,6.71,6.71,7.23,6.61,6.63,6.87,6.81,7.17,6.93,85.9,1,1,2.0,2,0,64.9,3.1,57.2,37.9,0,Mid,0,0,0.0
+18472,Male,Jaipur,Tier3,ECE,Embedded,No,No,5.1,5.09,5.26,5.6,5.25,4.7,5.37,4.79,5.18,60.2,1,0,0.0,1,0,51.2,1.7,26.3,28.3,1,Low,0,0,0.0
+29283,Male,Pune,Tier2,ECE,AI,No,No,7.01,7.38,7.13,6.63,6.43,7.49,6.61,6.85,6.83,63.7,1,1,0.0,1,0,51.7,2.2,34.9,,0,Mid,0,0,0.0
+15178,Male,Delhi,Tier2,IT,AI,No,No,8.67,8.62,9.17,9.75,9.38,8.78,9.21,8.87,9.03,97.1,2,4,3.0,3,1,73.6,4.8,67.8,86.8,1,High,1,0,25.13
+34305,Female,Bangalore,Tier3,IT,DataScience,Yes,No,6.53,5.65,6.48,5.75,6.33,6.05,6.06,5.79,6.16,56.1,0,1,0.0,1,0,38.0,2.5,27.9,30.4,0,Low,0,0,0.0
+12610,Female,Chennai,Tier2,IT,Networking,No,No,4.0,4.31,4.09,4.0,4.06,4.0,4.0,4.0,4.09,61.5,1,1,1.0,0,0,45.3,2.8,20.1,36.6,1,Low,0,0,0.0
+12145,Male,Delhi,Tier2,IT,Networking,No,No,5.94,5.98,5.5,5.22,5.75,5.84,5.98,5.68,5.48,90.8,0,2,1.0,2,0,69.7,2.4,46.2,47.0,0,Low,0,0,0.0

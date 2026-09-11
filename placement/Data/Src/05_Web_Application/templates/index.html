@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction Dashboard</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="ph-fill ph-student icon"></i>
+                <h2>Placement Analytics</h2>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li class="active" data-target="dashboard-view"><a href="#"><i class="ph ph-squares-four"></i> Dashboard</a></li>
+                    <li data-target="students-view"><a href="#"><i class="ph ph-users-three"></i> Students</a></li>
+                    <li data-target="reports-view"><a href="#"><i class="ph ph-chart-bar"></i> Reports</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="view-section active">
+                <header>
+                    <h1>Dashboard Overview</h1>
+                    <p>Monitor key placement metrics and trends</p>
+                </header>
+
+                <!-- KPI Cards -->
+                <section class="kpi-grid" id="kpi-grid">
+                    <div class="kpi-card glass">
+                        <i class="ph ph-users kpi-icon"></i>
+                        <h3 class="kpi-title">Total Students</h3>
+                        <p class="kpi-value" id="kpi-total-students">...</p>
+                    </div>
+                    <div class="kpi-card glass">
+                        <i class="ph ph-trend-up kpi-icon"></i>
+                        <h3 class="kpi-title">Placement Rate</h3>
+                        <p class="kpi-value" id="kpi-placement-rate">...</p>
+                    </div>
+                    <div class="kpi-card glass">
+                        <i class="ph ph-graduation-cap kpi-icon"></i>
+                        <h3 class="kpi-title">Average CGPA</h3>
+                        <p class="kpi-value" id="kpi-avg-cgpa">...</p>
+                    </div>
+                    <div class="kpi-card glass">
+                        <i class="ph ph-currency-circle-dollar kpi-icon"></i>
+                        <h3 class="kpi-title">Avg Salary Package</h3>
+                        <p class="kpi-value" id="kpi-avg-salary">...</p>
+                    </div>
+                    <div class="kpi-card glass">
+                        <i class="ph ph-warning-circle kpi-icon" style="color: var(--warning);"></i>
+                        <h3 class="kpi-title">Missing Values</h3>
+                        <p class="kpi-value" id="kpi-missing-values">...</p>
+                    </div>
+                    <div class="kpi-card glass">
+                        <i class="ph ph-broom kpi-icon" style="color: var(--success);"></i>
+                        <h3 class="kpi-title">Cleaned Records</h3>
+                        <p class="kpi-value" id="kpi-cleaned-records">...</p>
+                    </div>
+                </section>
+
+                <!-- Charts Section -->
+                <section class="charts-grid">
+                    <div class="chart-card glass">
+                        <h3>CGPA Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="cgpaChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass">
+                        <h3>Placement Status</h3>
+                        <div class="chart-container pie-container">
+                            <canvas id="placementPieChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass full-width">
+                        <h3>Students per Stream</h3>
+                        <div class="chart-container">
+                            <canvas id="streamChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Students View -->
+            <div id="students-view" class="view-section" style="display: none;">
+                <header class="flex-header">
+                    <div>
+                        <h1>Students List</h1>
+                        <p>Detailed view of student placement records</p>
+                    </div>
+                    <div class="filter-controls">
+                        <select id="data-filter" class="form-select">
+                            <option value="all">All Students</option>
+                            <option value="cleaned">Cleaned Data (No Missing)</option>
+                            <option value="missing">Missing Values Data</option>
+                        </select>
+                    </div>
+                </header>
+                
+                <div class="table-container glass">
+                    <div class="table-responsive">
+                        <table id="students-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Gender</th>
+                                    <th>Stream</th>
+                                    <th>CGPA</th>
+                                    <th>Status</th>
+                                    <th>Salary Package</th>
+                                </tr>
+                            </thead>
+                            <tbody id="students-tbody">
+                                <!-- Data injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination-controls">
+                        <button id="prev-page" class="btn">Previous</button>
+                        <span id="page-info">Page 1 of 1</span>
+                        <button id="next-page" class="btn">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports View -->
+            <div id="reports-view" class="view-section" style="display: none;">
+                <header>
+                    <h1>Reports Gallery</h1>
+                    <p>All generated exploratory data analysis plots</p>
+                </header>
+                
+                <div class="gallery-grid" id="plots-gallery">
+                    <!-- Images injected by JS -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

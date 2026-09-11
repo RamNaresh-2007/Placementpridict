@@ -1,0 +1,15 @@
+Family,Model Name,Task,Scaled,Metric,Score,Train Time (s)
+Distance-based,KNN,Classification,No,Accuracy,0.864,0.0964
+Distance-based,KNN,Classification,Yes,Accuracy,0.879,0.0034
+Distance-based,SVM (RBF),Classification,No,Accuracy,0.87,0.3357
+Distance-based,SVM (RBF),Classification,Yes,Accuracy,0.921,0.2106
+Gradient-descent,Logistic Regression,Classification,No,Accuracy,0.918,0.2653
+Gradient-descent,Logistic Regression,Classification,Yes,Accuracy,0.922,0.0145
+Gradient-descent,Neural Net,Classification,No,Accuracy,0.913,0.4267
+Gradient-descent,Neural Net,Classification,Yes,Accuracy,0.921,0.2709
+Distance-based,K-Means (k=2),Clustering,No,Silhouette Score,0.4041,0.1196
+Distance-based,K-Means (k=2),Clustering,Yes,Silhouette Score,0.184,0.0652
+Regularized,Ridge,Regression,No,R2 Score,0.9195,0.0304
+Regularized,Ridge,Regression,Yes,R2 Score,0.9195,0.0182
+Regularized,Lasso,Regression,No,R2 Score,0.9044,0.9045
+Regularized,Lasso,Regression,Yes,R2 Score,0.9183,0.6298
