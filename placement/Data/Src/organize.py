@@ -24,7 +24,20 @@ folders = {
         "logistic_regression.py",
         "decision_trees.py",
         "complete_pipeline.py",
-        "PPP.py"
+        "PPP.py",
+        "25_dbscan.py",
+        "dbscan_clustering.py",
+        "hierarchical_clustering.py",
+        "26_pca.py",
+        "pca.py",
+        "pca_analysis.py",
+        "pca",
+        "27_anomaly_detection.py",
+        "anomaly_detection.py",
+        "anomaly_detection",
+        "28_data_leakage.py",
+        "data_leakage.py",
+        "data_leakage"
     ],
     "05_Web_Application": [
         "app.py",

@@ -1,0 +1,28 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ram032007naresh/placement-predict:latest
+    container_name: placement-web-app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - FLASK_DEBUG=0
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ram032007naresh/placement-predict:latest
+    container_name: placement-streamlit-dashboard
+    restart: unless-stopped
+    command: ["streamlit", "run", "placement/Data/Src/05_Web_Application/dashboard.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0

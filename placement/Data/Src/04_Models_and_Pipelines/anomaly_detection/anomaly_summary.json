@@ -1,0 +1,245 @@
+{
+    "status": "success",
+    "method": "Unsupervised Anomaly & Outlier Detection Suite",
+    "session": "Session 27",
+    "total_students": 35000,
+    "total_features": 20,
+    "ground_truth_anomalies": 1208,
+    "ground_truth_pct": 3.45,
+    "primary_model": {
+        "name": "Isolation Forest",
+        "full_cohort_roc_auc": 0.9305,
+        "full_cohort_pr_auc": 0.3882,
+        "full_cohort_f1": 0.3535,
+        "full_cohort_precision": 35.1,
+        "full_cohort_recall": 35.6,
+        "detected_anomalies": 1225,
+        "detected_pct": 3.5
+    },
+    "best_covariance_model": {
+        "name": "Elliptic Envelope (Mahalanobis)",
+        "roc_auc": 0.9884,
+        "precision_pct": 80.6,
+        "recall_pct": 91.6,
+        "f1_score": 0.8571
+    },
+    "best_density_model": {
+        "name": "DBSCAN Noise Filter",
+        "precision_pct": 93.9,
+        "recall_pct": 69.5,
+        "f1_score": 0.7985
+    },
+    "benchmark_comparison": [
+        {
+            "model": "Elliptic Envelope (Mahalanobis)",
+            "paradigm": "Covariance / Distance",
+            "roc_auc": 0.9884,
+            "pr_auc": 0.9447,
+            "precision": 80.6,
+            "recall": 91.6,
+            "f1_score": 0.8571,
+            "strengths": "FastMCD covariance matrix captures inter-variable contradiction"
+        },
+        {
+            "model": "DBSCAN Noise Filter",
+            "paradigm": "Density Connectivity",
+            "roc_auc": null,
+            "pr_auc": null,
+            "precision": 93.9,
+            "recall": 69.5,
+            "f1_score": 0.7985,
+            "strengths": "Highest precision (93.9% of flagged noise points are genuine anomalies)"
+        },
+        {
+            "model": "Isolation Forest",
+            "paradigm": "Tree Isolation Ensemble",
+            "roc_auc": 0.922,
+            "pr_auc": 0.3493,
+            "precision": 32.0,
+            "recall": 37.0,
+            "f1_score": 0.3434,
+            "strengths": "Highly scalable O(n log n); processes all 35k students in < 2 seconds"
+        },
+        {
+            "model": "One-Class SVM",
+            "paradigm": "Kernel Boundary Separation",
+            "roc_auc": 0.9468,
+            "pr_auc": 0.4532,
+            "precision": 39.4,
+            "recall": 46.1,
+            "f1_score": 0.4251,
+            "strengths": "Non-linear RBF boundary separating subtle peripheral outliers"
+        },
+        {
+            "model": "Local Outlier Factor (LOF)",
+            "paradigm": "Local Density Ratio",
+            "roc_auc": 0.849,
+            "pr_auc": 0.297,
+            "precision": 27.4,
+            "recall": 31.2,
+            "f1_score": 0.2918,
+            "strengths": "Identifies localized cluster boundary anomalies"
+        }
+    ],
+    "sensitivity_curve": [
+        {
+            "contamination_pct": 1.0,
+            "iso_precision": 60.0,
+            "iso_recall": 19.5,
+            "iso_f1": 0.2941,
+            "ee_precision": 100.0,
+            "ee_recall": 32.5,
+            "ee_f1": 0.4902
+        },
+        {
+            "contamination_pct": 2.0,
+            "iso_precision": 41.0,
+            "iso_recall": 26.6,
+            "iso_f1": 0.3228,
+            "ee_precision": 100.0,
+            "ee_recall": 64.9,
+            "ee_f1": 0.7874
+        },
+        {
+            "contamination_pct": 3.0,
+            "iso_precision": 34.0,
+            "iso_recall": 33.1,
+            "iso_f1": 0.3355,
+            "ee_precision": 94.0,
+            "ee_recall": 91.6,
+            "ee_f1": 0.9276
+        },
+        {
+            "contamination_pct": 3.5,
+            "iso_precision": 32.0,
+            "iso_recall": 36.4,
+            "iso_f1": 0.3404,
+            "ee_precision": 80.6,
+            "ee_recall": 91.6,
+            "ee_f1": 0.8571
+        },
+        {
+            "contamination_pct": 5.0,
+            "iso_precision": 28.4,
+            "iso_recall": 46.1,
+            "iso_f1": 0.3515,
+            "ee_precision": 57.6,
+            "ee_recall": 93.5,
+            "ee_f1": 0.7129
+        },
+        {
+            "contamination_pct": 7.0,
+            "iso_precision": 24.6,
+            "iso_recall": 55.8,
+            "iso_f1": 0.3413,
+            "ee_precision": 41.7,
+            "ee_recall": 94.8,
+            "ee_f1": 0.5794
+        },
+        {
+            "contamination_pct": 10.0,
+            "iso_precision": 20.6,
+            "iso_recall": 66.9,
+            "iso_f1": 0.315,
+            "ee_precision": 29.4,
+            "ee_recall": 95.5,
+            "ee_f1": 0.4495
+        }
+    ],
+    "archetype_profiles": [
+        {
+            "feature": "CGPA",
+            "normal_mean": 7.25,
+            "normal_median": 7.25,
+            "anomaly_mean": 7.06,
+            "anomaly_median": 9.7,
+            "z_deviation": -0.12
+        },
+        {
+            "feature": "AttendancePercent",
+            "normal_mean": 77.1,
+            "normal_median": 77.5,
+            "anomaly_mean": 64.92,
+            "anomaly_median": 54.69,
+            "z_deviation": -0.98
+        },
+        {
+            "feature": "Projects",
+            "normal_mean": 2.05,
+            "normal_median": 2.0,
+            "anomaly_mean": 3.53,
+            "anomaly_median": 5.0,
+            "z_deviation": 1.23
+        },
+        {
+            "feature": "Internships",
+            "normal_mean": 1.09,
+            "normal_median": 1.0,
+            "anomaly_mean": 2.06,
+            "anomaly_median": 3.0,
+            "z_deviation": 1.19
+        },
+        {
+            "feature": "CodingTestScore",
+            "normal_mean": 57.58,
+            "normal_median": 57.7,
+            "anomaly_mean": 51.69,
+            "anomaly_median": 95.05,
+            "z_deviation": -0.28
+        },
+        {
+            "feature": "AptitudeTestScore",
+            "normal_mean": 68.97,
+            "normal_median": 70.0,
+            "anomaly_mean": 66.01,
+            "anomaly_median": 96.0,
+            "z_deviation": -0.19
+        },
+        {
+            "feature": "Certifications",
+            "normal_mean": 1.93,
+            "normal_median": 2.0,
+            "anomaly_mean": 1.93,
+            "anomaly_median": 2.0,
+            "z_deviation": -0.0
+        }
+    ],
+    "plots": [
+        {
+            "id": "anomaly_score_distribution",
+            "title": "Anomaly Score Distribution & Cutoff Threshold",
+            "filename": "01_anomaly_score_distribution.png",
+            "url": "/plots/anomaly_detection/01_anomaly_score_distribution.png",
+            "caption": "Isolation Forest decision score separation between normal students and true anomalous applicants."
+        },
+        {
+            "id": "pca_2d_anomaly_landscape",
+            "title": "2D PCA Multidimensional Anomaly Landscape",
+            "filename": "02_pca_2d_anomaly_landscape.png",
+            "url": "/plots/anomaly_detection/02_pca_2d_anomaly_landscape.png",
+            "caption": "Projection of all candidates onto PC1 & PC2 highlighting True Positives, False Positives, and Inliers."
+        },
+        {
+            "id": "algorithm_comparison_benchmark",
+            "title": "Multi-Algorithm Performance Benchmark",
+            "filename": "03_algorithm_comparison_benchmark.png",
+            "url": "/plots/anomaly_detection/03_algorithm_comparison_benchmark.png",
+            "caption": "Side-by-side comparison of Elliptic Envelope, DBSCAN, Isolation Forest, OCSVM, and LOF across metrics."
+        },
+        {
+            "id": "anomaly_feature_profiles",
+            "title": "Feature Deviation Archetype (Z-Score Shift)",
+            "filename": "04_anomaly_feature_profiles.png",
+            "url": "/plots/anomaly_detection/04_anomaly_feature_profiles.png",
+            "caption": "Standardized deviations illustrating the multidimensional contradiction pattern of anomalies."
+        },
+        {
+            "id": "contamination_sensitivity",
+            "title": "Contamination Sensitivity & Tradeoff Curve",
+            "filename": "05_contamination_sensitivity.png",
+            "url": "/plots/anomaly_detection/05_contamination_sensitivity.png",
+            "caption": "Precision, Recall, and F1 dynamics across contamination rates from 1% to 10%."
+        }
+    ],
+    "report": "Session 27 - Unsupervised Anomaly & Outlier Detection Report\n===========================================================\nTotal Students Analyzed: 35,000\nNumber of Features: 20 (standardized, median-imputed)\nGround Truth Anomalies: 1,208 (3.45% contamination)\n\n1. Multi-Algorithm Benchmark Summary:\n-------------------------------------\nModel                            | ROC-AUC  | PR-AUC   | Precision  | Recall     | F1-Score\n----------------------------------------------------------------------------------------\nElliptic Envelope (Mahalanobis)  | 0.9884   | 0.9447   | 80.6      % | 91.6      % | 0.8571  \nDBSCAN Noise Filter              | N/A      | N/A      | 93.9      % | 69.5      % | 0.7985  \nIsolation Forest                 | 0.9220   | 0.3493   | 32.0      % | 37.0      % | 0.3434  \nOne-Class SVM                    | 0.9468   | 0.4532   | 39.4      % | 46.1      % | 0.4251  \nLocal Outlier Factor (LOF)       | 0.8490   | 0.2970   | 27.4      % | 31.2      % | 0.2918  \n\n2. Key Mathematical Findings:\n-----------------------------\n- Elliptic Envelope achieves an exceptional 0.9884 ROC-AUC and 91.6% Recall,\n  demonstrating that anomalies are primarily driven by covariance contradictions\n  between otherwise correlated features (e.g. high CGPA with critical attendance deficit).\n- DBSCAN noise detection achieves the highest precision (93.9%), meaning almost any point\n  falling into isolated spatial noise is a confirmed true anomaly.\n- Isolation Forest provides linear O(n log n) scaling across all 35,000 students,\n  isolating 93.1% ROC-AUC without quadratic distance matrices.\n\n3. Multidimensional Anomaly Profiles:\n-------------------------------------\n  CGPA                : Normal Median = 7.25   | Anomaly Median = 9.7    | Shift = -0.12 std\n  AttendancePercent   : Normal Median = 77.5   | Anomaly Median = 54.69  | Shift = -0.98 std\n  Projects            : Normal Median = 2.0    | Anomaly Median = 5.0    | Shift = +1.23 std\n  Internships         : Normal Median = 1.0    | Anomaly Median = 3.0    | Shift = +1.19 std\n  CodingTestScore     : Normal Median = 57.7   | Anomaly Median = 95.05  | Shift = -0.28 std\n  AptitudeTestScore   : Normal Median = 70.0   | Anomaly Median = 96.0   | Shift = -0.19 std\n  Certifications      : Normal Median = 2.0    | Anomaly Median = 2.0    | Shift = -0.00 std\n\n4. Recommended Strategy in Placement Analytics:\n-----------------------------------------------\nDeploy a tiered consensus detector:\n  Tier 1: Run Isolation Forest over the entire dataset for fast initial anomaly scoring.\n  Tier 2: Apply Elliptic Envelope Mahalanobis distance on candidate flagged applicants\n          to confirm statistical deviation.\n  Tier 3: Flag high-scoring candidates for human verification before placement scheduling.\n"
+}

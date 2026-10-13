@@ -1,0 +1,14 @@
+.git
+.github
+.idea
+.venv
+placement/.venv
+__pycache__
+**/__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.log
+.pytest_cache
+archive (1)
+scratch/

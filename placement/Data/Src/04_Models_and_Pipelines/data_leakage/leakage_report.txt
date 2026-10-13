@@ -1,0 +1,41 @@
+================================================================================
+DATA LEAKAGE PREVENTION & ROBUST MODEL EVALUATION REPORT (SESSION 28)
+================================================================================
+
+1. WORKFLOW 1: VAULT-LOCK & STRATIFIED DEV PIPELINE (IMAGE 2)
+--------------------------------------------------------------------------------
+Mean Development CV Accuracy: 0.8965 (+/- 0.0155)
+Mean Development CV F1-Score: 0.9220
+Mean Development CV ROC-AUC:  0.9507
+Unseen Vault Test Accuracy:   0.8950
+Unseen Vault Test F1-Score:   0.9211
+Unseen Vault Test ROC-AUC:    0.9411
+
+2. WORKFLOW 2: NESTED CROSS-VALIDATION & HYPERPARAMETER TUNING (IMAGE 1)
+--------------------------------------------------------------------------------
+Outer 5-Fold F1 Scores:       [0.9174 0.9132 0.9215 0.9299 0.9248]
+Unbiased Nested CV F1-Score:  0.9213 (+/- 0.0116)
+Outer 5-Fold Accuracies:      [0.891 0.885 0.893 0.905 0.898]
+Unbiased Nested CV Accuracy:  0.8944 (+/- 0.0135)
+Non-Nested Naive Best CV F1:  0.9221
+Tuning Optimism Bias (Gap):   +0.0007
+
+3. WORKFLOW 3: LEAKY VS. LEAKAGE-FREE COMPARISON
+--------------------------------------------------------------------------------
+Metric          | Leaky        | Leakage-Free   | Optimism Bias (Gap) 
+Accuracy        | 0.8954       | 0.8954         | +0.0000
+Precision       | 0.9067       | 0.9067         | +0.0000
+Recall          | 0.9363       | 0.9363         | +0.0000
+F1              | 0.9212       | 0.9212         | +0.0000
+Roc_auc         | 0.9487       | 0.9487         | +0.0000
+
+4. WORKFLOW 4: MATHEMATICAL CONTAMINATION ANALYSIS (FEATURE DRIFT)
+--------------------------------------------------------------------------------
+Feature: CGPA                 | Mean Shift: 0.0009 | Std Shift: 0.0034 | Max z-distortion: 0.0042
+Feature: AptitudeTestScore    | Mean Shift: 0.1168 | Std Shift: 0.0360 | Max z-distortion: 0.0128
+Feature: CodingTestScore      | Mean Shift: 0.0284 | Std Shift: 0.0025 | Max z-distortion: 0.0017
+Feature: SoftSkillsRating     | Mean Shift: 0.0136 | Std Shift: 0.0015 | Max z-distortion: 0.0180
+Feature: Internships          | Mean Shift: 0.0022 | Std Shift: 0.0009 | Max z-distortion: 0.0053
+Feature: Projects             | Mean Shift: 0.0048 | Std Shift: 0.0050 | Max z-distortion: 0.0138
+
+================================================================================

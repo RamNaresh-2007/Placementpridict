@@ -1,0 +1,43 @@
+Session 27 - Unsupervised Anomaly & Outlier Detection Report
+===========================================================
+Total Students Analyzed: 35,000
+Number of Features: 20 (standardized, median-imputed)
+Ground Truth Anomalies: 1,208 (3.45% contamination)
+
+1. Multi-Algorithm Benchmark Summary:
+-------------------------------------
+Model                            | ROC-AUC  | PR-AUC   | Precision  | Recall     | F1-Score
+----------------------------------------------------------------------------------------
+Elliptic Envelope (Mahalanobis)  | 0.9884   | 0.9447   | 80.6      % | 91.6      % | 0.8571  
+DBSCAN Noise Filter              | N/A      | N/A      | 93.9      % | 69.5      % | 0.7985  
+Isolation Forest                 | 0.9220   | 0.3493   | 32.0      % | 37.0      % | 0.3434  
+One-Class SVM                    | 0.9468   | 0.4532   | 39.4      % | 46.1      % | 0.4251  
+Local Outlier Factor (LOF)       | 0.8490   | 0.2970   | 27.4      % | 31.2      % | 0.2918  
+
+2. Key Mathematical Findings:
+-----------------------------
+- Elliptic Envelope achieves an exceptional 0.9884 ROC-AUC and 91.6% Recall,
+  demonstrating that anomalies are primarily driven by covariance contradictions
+  between otherwise correlated features (e.g. high CGPA with critical attendance deficit).
+- DBSCAN noise detection achieves the highest precision (93.9%), meaning almost any point
+  falling into isolated spatial noise is a confirmed true anomaly.
+- Isolation Forest provides linear O(n log n) scaling across all 35,000 students,
+  isolating 93.1% ROC-AUC without quadratic distance matrices.
+
+3. Multidimensional Anomaly Profiles:
+-------------------------------------
+  CGPA                : Normal Median = 7.25   | Anomaly Median = 9.7    | Shift = -0.12 std
+  AttendancePercent   : Normal Median = 77.5   | Anomaly Median = 54.69  | Shift = -0.98 std
+  Projects            : Normal Median = 2.0    | Anomaly Median = 5.0    | Shift = +1.23 std
+  Internships         : Normal Median = 1.0    | Anomaly Median = 3.0    | Shift = +1.19 std
+  CodingTestScore     : Normal Median = 57.7   | Anomaly Median = 95.05  | Shift = -0.28 std
+  AptitudeTestScore   : Normal Median = 70.0   | Anomaly Median = 96.0   | Shift = -0.19 std
+  Certifications      : Normal Median = 2.0    | Anomaly Median = 2.0    | Shift = -0.00 std
+
+4. Recommended Strategy in Placement Analytics:
+-----------------------------------------------
+Deploy a tiered consensus detector:
+  Tier 1: Run Isolation Forest over the entire dataset for fast initial anomaly scoring.
+  Tier 2: Apply Elliptic Envelope Mahalanobis distance on candidate flagged applicants
+          to confirm statistical deviation.
+  Tier 3: Flag high-scoring candidates for human verification before placement scheduling.

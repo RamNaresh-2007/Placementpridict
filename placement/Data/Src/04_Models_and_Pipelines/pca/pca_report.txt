@@ -1,0 +1,43 @@
+PCA on 35,000 students, 20 scaled, median-imputed
+numeric features (same pipeline as Sessions 21 & 24).
+
+Variance explained by first 10 components:
+  PC1: 64.24%  (cumulative: 64.24%)
+  PC2: 11.84%  (cumulative: 76.08%)
+  PC3: 4.45%  (cumulative: 80.53%)
+  PC4: 3.26%  (cumulative: 83.79%)
+  PC5: 2.67%  (cumulative: 86.46%)
+  PC6: 2.41%  (cumulative: 88.87%)
+  PC7: 2.04%  (cumulative: 90.9%)
+  PC8: 1.84%  (cumulative: 92.74%)
+  PC9: 1.72%  (cumulative: 94.46%)
+  PC10: 1.57%  (cumulative: 96.02%)
+
+Components needed for common variance thresholds:
+  80% cumulative variance: 3 components
+  90% cumulative variance: 7 components
+  95% cumulative variance: 10 components
+
+PC1 + PC2 together: 76.1% of total variance
+(this is the number that quietly backed every 2D PCA cluster plot
+ in Sessions 21 and 24 - now made explicit)
+
+Top features contributing to PC1 (by absolute loading):
+  SGPA_Sem8: 0.263
+  SGPA_Sem7: 0.262
+  SGPA_Sem6: 0.26
+  SGPA_Sem5: 0.259
+  SGPA_Sem4: 0.258
+  SGPA_Sem3: 0.257
+  SGPA_Sem2: 0.255
+  CGPA: 0.254
+
+Top features contributing to PC2 (by absolute loading):
+  CodingTestScore: 0.271
+  AptitudeTestScore: 0.263
+  Projects: 0.258
+  Internships: 0.246
+  SGPA_Sem1: -0.245
+  AttendancePercent: 0.239
+  SGPA_Sem2: -0.236
+  Certifications: 0.234

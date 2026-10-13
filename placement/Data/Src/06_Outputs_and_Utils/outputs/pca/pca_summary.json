@@ -1,0 +1,205 @@
+{
+    "status": "success",
+    "method": "Principal Component Analysis (PCA)",
+    "total_students": 35000,
+    "total_features": 20,
+    "total_components": 20,
+    "pc1_variance_pct": 64.24,
+    "pc2_variance_pct": 11.84,
+    "pc1_pc2_cumulative_pct": 76.08,
+    "variance_by_component": [
+        {
+            "component": "PC1",
+            "variance_pct": 64.24,
+            "cumulative_pct": 64.24
+        },
+        {
+            "component": "PC2",
+            "variance_pct": 11.84,
+            "cumulative_pct": 76.08
+        },
+        {
+            "component": "PC3",
+            "variance_pct": 4.45,
+            "cumulative_pct": 80.53
+        },
+        {
+            "component": "PC4",
+            "variance_pct": 3.26,
+            "cumulative_pct": 83.79
+        },
+        {
+            "component": "PC5",
+            "variance_pct": 2.67,
+            "cumulative_pct": 86.46
+        },
+        {
+            "component": "PC6",
+            "variance_pct": 2.41,
+            "cumulative_pct": 88.87
+        },
+        {
+            "component": "PC7",
+            "variance_pct": 2.04,
+            "cumulative_pct": 90.9
+        },
+        {
+            "component": "PC8",
+            "variance_pct": 1.84,
+            "cumulative_pct": 92.74
+        },
+        {
+            "component": "PC9",
+            "variance_pct": 1.72,
+            "cumulative_pct": 94.46
+        },
+        {
+            "component": "PC10",
+            "variance_pct": 1.57,
+            "cumulative_pct": 96.02
+        },
+        {
+            "component": "PC11",
+            "variance_pct": 1.33,
+            "cumulative_pct": 97.36
+        },
+        {
+            "component": "PC12",
+            "variance_pct": 1.16,
+            "cumulative_pct": 98.51
+        },
+        {
+            "component": "PC13",
+            "variance_pct": 0.32,
+            "cumulative_pct": 98.83
+        },
+        {
+            "component": "PC14",
+            "variance_pct": 0.18,
+            "cumulative_pct": 99.01
+        },
+        {
+            "component": "PC15",
+            "variance_pct": 0.18,
+            "cumulative_pct": 99.19
+        },
+        {
+            "component": "PC16",
+            "variance_pct": 0.17,
+            "cumulative_pct": 99.36
+        },
+        {
+            "component": "PC17",
+            "variance_pct": 0.17,
+            "cumulative_pct": 99.53
+        },
+        {
+            "component": "PC18",
+            "variance_pct": 0.16,
+            "cumulative_pct": 99.69
+        },
+        {
+            "component": "PC19",
+            "variance_pct": 0.16,
+            "cumulative_pct": 99.85
+        },
+        {
+            "component": "PC20",
+            "variance_pct": 0.15,
+            "cumulative_pct": 100.0
+        }
+    ],
+    "thresholds": {
+        "80%": 3,
+        "90%": 7,
+        "95%": 10
+    },
+    "top_pc1_loadings": [
+        {
+            "feature": "SGPA_Sem8",
+            "loading": 0.263
+        },
+        {
+            "feature": "SGPA_Sem7",
+            "loading": 0.262
+        },
+        {
+            "feature": "SGPA_Sem6",
+            "loading": 0.26
+        },
+        {
+            "feature": "SGPA_Sem5",
+            "loading": 0.259
+        },
+        {
+            "feature": "SGPA_Sem4",
+            "loading": 0.258
+        },
+        {
+            "feature": "SGPA_Sem3",
+            "loading": 0.257
+        },
+        {
+            "feature": "SGPA_Sem2",
+            "loading": 0.255
+        },
+        {
+            "feature": "CGPA",
+            "loading": 0.254
+        }
+    ],
+    "top_pc2_loadings": [
+        {
+            "feature": "CodingTestScore",
+            "loading": 0.271
+        },
+        {
+            "feature": "AptitudeTestScore",
+            "loading": 0.263
+        },
+        {
+            "feature": "Projects",
+            "loading": 0.258
+        },
+        {
+            "feature": "Internships",
+            "loading": 0.246
+        },
+        {
+            "feature": "SGPA_Sem1",
+            "loading": -0.245
+        },
+        {
+            "feature": "AttendancePercent",
+            "loading": 0.239
+        },
+        {
+            "feature": "SGPA_Sem2",
+            "loading": -0.236
+        },
+        {
+            "feature": "Certifications",
+            "loading": 0.234
+        }
+    ],
+    "plots": [
+        {
+            "id": "scree_variance",
+            "filename": "pca/scree_and_cumulative_variance.png",
+            "title": "Scree Plot & Cumulative Variance Curve",
+            "caption": "Scree bar chart and cumulative variance progression across components with 80%, 90%, and 95% thresholds."
+        },
+        {
+            "id": "loadings_biplot",
+            "filename": "pca/loadings_biplot.png",
+            "title": "PCA Loadings Biplot (PC1 vs PC2)",
+            "caption": "Vector representation of 20 original features projected onto principal components PC1 and PC2."
+        },
+        {
+            "id": "pca_2d_scatter",
+            "filename": "pca/pca_2d_by_placement.png",
+            "title": "2D Student Landscape by Placement Status",
+            "caption": "All 35,000 students projected into 2D principal coordinate space, colored by actual placement outcome."
+        }
+    ]
+}

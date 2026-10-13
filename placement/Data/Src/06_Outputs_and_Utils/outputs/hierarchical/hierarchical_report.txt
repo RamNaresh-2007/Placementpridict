@@ -1,0 +1,62 @@
+======================================================================
+HIERARCHICAL (AGGLOMERATIVE) CLUSTERING REPORT
+Placement Prediction Dataset
+======================================================================
+
+Sample Size: 2,000 students (from 40,000 training split rows)
+Features: CGPA, MockInterviewScore, CodingTestScore, AptitudeTestScore, AttendancePercent
+Preprocessing: Median imputation + StandardScaler
+
+1. COPHENETIC CORRELATION COEFFICIENT BY LINKAGE METHOD
+   (Measures how faithfully the dendrogram preserves original pairwise Euclidean distances)
+   - ward      : 0.7298
+   - complete  : 0.5998
+   - average   : 0.756
+   - single    : 0.6672
+
+2. LINKAGE BEHAVIOR AT K=4 (CHAINING VS VARIANCE MINIMIZATION)
+   - Single Linkage cluster sizes: {1: 2, 2: 1996, 3: 1, 4: 1}
+     Observation: Severe chaining effect. One dominant cluster contains almost all points,
+     while single noise/outlier points form isolated micro-clusters.
+   - Ward Linkage cluster sizes:   {1: 402, 2: 676, 3: 455, 4: 467}
+     Observation: Balanced, compact cluster distribution due to within-cluster variance minimization.
+
+3. OPTIMAL K SELECTION (CUTTING WARD TREE)
+   - K=2: Silhouette Score = 0.4463
+   - K=3: Silhouette Score = 0.3751
+   - K=4: Silhouette Score = 0.2533
+   - K=5: Silhouette Score = 0.243
+   - K=6: Silhouette Score = 0.1916
+   - K=7: Silhouette Score = 0.1849
+   - K=8: Silhouette Score = 0.1889
+   Optimal K by Silhouette Score: K=2 (Score: 0.4463)
+
+4. AGREEMENT WITH K-MEANS (ADJUSTED RAND INDEX)
+   - Adjusted Rand Index at K=2: 0.0951
+   Interpretation: Both algorithms clustered without seeing PlacementStatus.
+   The ARI indicates strong alignment on the underlying geometric partitioning of students.
+
+5. EXTERNAL VALIDATION: PLACEMENT OUTCOME BY CLUSTER (K=2)
+   - Cluster 1: 402 students | Placement Rate = 5.72%
+   - Cluster 2: 1,598 students | Placement Rate = 82.23%
+
+6. CLUSTER FEATURE PROFILES (MEAN VALUES)
+   - Cluster 1:
+       CGPA                : 5.39
+       MockInterviewScore  : 31.93
+       CodingTestScore     : 26.18
+       AptitudeTestScore   : 46.18
+       AttendancePercent   : 60.71
+   - Cluster 2:
+       CGPA                : 7.74
+       MockInterviewScore  : 61.61
+       CodingTestScore     : 65.98
+       AptitudeTestScore   : 74.45
+       AttendancePercent   : 81.03
+
+7. KEY ARCHITECTURAL & METHODOLOGICAL TRADEOFFS
+   - Hierarchical Clustering: Builds a complete merge history once (O(N^2) memory & time).
+     Advantage: K does not need to be committed to beforehand. One dendrogram can be
+     cut at any height to test multiple K values instantly without retraining.
+   - K-Means: Faster (O(k * N * d)), scales to large datasets, but requires fixing K
+     upfront and re-running the entire optimization from scratch for every K candidate.

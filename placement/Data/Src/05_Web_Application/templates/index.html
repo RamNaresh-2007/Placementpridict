@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placement Prediction Dashboard</title>
+    <title>Placement Intelligence & AI Career Suite</title>
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -16,25 +16,27 @@
         <aside class="sidebar">
             <div class="logo">
                 <i class="ph-fill ph-student icon"></i>
-                <h2>Placement Analytics</h2>
+                <h2>Placement AI</h2>
             </div>
             <nav>
                 <ul id="nav-menu">
                     <li class="active" data-target="dashboard-view"><a href="#"><i class="ph ph-squares-four"></i> Dashboard</a></li>
+                    <li data-target="predictor-view"><a href="#"><i class="ph ph-brain"></i> AI Predictor & Coach</a></li>
                     <li data-target="students-view"><a href="#"><i class="ph ph-users-three"></i> Students</a></li>
-                    <li data-target="reports-view"><a href="#"><i class="ph ph-chart-bar"></i> Reports</a></li>
+                    <li data-target="reports-view"><a href="#"><i class="ph ph-chart-bar"></i> Reports & Plots</a></li>
                 </ul>
             </nav>
+
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
             
-            <!-- Dashboard View -->
+            <!-- 1. Dashboard View -->
             <div id="dashboard-view" class="view-section active">
                 <header>
                     <h1>Dashboard Overview</h1>
-                    <p>Monitor key placement metrics and trends</p>
+                    <p>Monitor key placement metrics, institutional trends, and student distributions</p>
                 </header>
 
                 <!-- KPI Cards -->
@@ -92,27 +94,1039 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- DBSCAN Density Clustering & Anomaly Detection Section -->
+                <section class="dbscan-section" id="dbscan-dashboard-section">
+                    <div class="section-title-row">
+                        <div class="title-with-icon">
+                            <span class="section-icon-badge"><i class="ph ph-intersect"></i></span>
+                            <div>
+                                <h2>DBSCAN Density-Based Spatial Clustering & Anomaly Detection</h2>
+                                <p class="section-subtext">Unsupervised spatial density analysis isolating dense core clusters from sparse outlier students without requiring pre-set K</p>
+                            </div>
+                        </div>
+                        <div class="tag-badges">
+                            <span class="pill-badge pill-purple"><i class="ph ph-sparkle"></i> Zero-K Required</span>
+                            <span class="pill-badge pill-success"><i class="ph ph-shield-check"></i> 93.9% Anomaly Overlap</span>
+                        </div>
+                    </div>
+
+                    <!-- DBSCAN Metrics Grid -->
+                    <div class="dbscan-kpi-grid">
+                        <div class="dbscan-kpi-card glass">
+                            <span class="dbscan-kpi-label">Optimal Epsilon (&epsilon;)</span>
+                            <h3 class="dbscan-kpi-value" id="dbscan-eps">2.88</h3>
+                            <span class="dbscan-kpi-sub">K-Distance Knee Curvature</span>
+                        </div>
+                        <div class="dbscan-kpi-card glass">
+                            <span class="dbscan-kpi-label">Min Samples (k)</span>
+                            <h3 class="dbscan-kpi-value" id="dbscan-min-samples">40</h3>
+                            <span class="dbscan-kpi-sub">2 &times; 20 Numeric Dimensions</span>
+                        </div>
+                        <div class="dbscan-kpi-card glass">
+                            <span class="dbscan-kpi-label">Core Dense Inliers</span>
+                            <h3 class="dbscan-kpi-value" style="color: var(--success);" id="dbscan-core-points">4,675</h3>
+                            <span class="dbscan-kpi-sub">93.5% of Analyzed Cohort</span>
+                        </div>
+                        <div class="dbscan-kpi-card glass">
+                            <span class="dbscan-kpi-label">Identified Outlier Noise</span>
+                            <h3 class="dbscan-kpi-value" style="color: var(--danger);" id="dbscan-noise-points">114</h3>
+                            <span class="dbscan-kpi-sub">2.3% Isolated Students</span>
+                        </div>
+                        <div class="dbscan-kpi-card glass">
+                            <span class="dbscan-kpi-label">IsAnomaly Match</span>
+                            <h3 class="dbscan-kpi-value" style="color: var(--accent-primary);" id="dbscan-anomaly-overlap">93.9%</h3>
+                            <span class="dbscan-kpi-sub">True Unsupervised Overlap</span>
+                        </div>
+                    </div>
+
+                    <!-- DBSCAN Graphs Showcase Grid -->
+                    <div class="dbscan-plots-grid">
+                        <!-- Plot 1: K-Distance Plot -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-chart-line-up"></i> Optimal Epsilon Tuning: K-Distance Elbow Plot</h4>
+                                    <p>Distance to 40th nearest neighbor sorted ascending; kneedle knee marks &epsilon; = 2.88 boundary.</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/dbscan/k_distance_plot.png" data-title="DBSCAN K-Distance Elbow Plot (eps = 2.88)" data-category="DBSCAN & Clustering" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/dbscan/k_distance_plot.png" data-title="DBSCAN K-Distance Elbow Plot (eps = 2.88)" data-category="DBSCAN & Clustering">
+                                <img src="/plots/dbscan/k_distance_plot.png" alt="DBSCAN K-Distance Elbow Plot" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-ruler"></i> Metric: Euclidean in Scaled Space</span>
+                                <span class="badge-tag"><i class="ph ph-target"></i> Knee Percentile: 97.7%</span>
+                            </div>
+                        </div>
+
+                        <!-- Plot 2: 2D PCA Clusters vs Noise -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-scatter-plot"></i> 2D PCA Projection: Core Clusters vs Outlier Noise</h4>
+                                    <p>Global student landscape showing 4,675 dense cluster students vs 114 isolated black 'x' noise points.</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/dbscan/dbscan_clusters_pca_2d.png" data-title="DBSCAN 2D PCA Clusters vs Outlier Noise" data-category="DBSCAN & Clustering" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/dbscan/dbscan_clusters_pca_2d.png" data-title="DBSCAN 2D PCA Clusters vs Outlier Noise" data-category="DBSCAN & Clustering">
+                                <img src="/plots/dbscan/dbscan_clusters_pca_2d.png" alt="DBSCAN 2D PCA Clusters vs Outlier Noise" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-cube"></i> PCA Compression: 20D to 2D</span>
+                                <span class="badge-tag"><i class="ph ph-warning-diamond"></i> Noise Points: 114 (2.3%)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DBSCAN vs Hierarchical Analytical Drawer -->
+                    <div class="dbscan-insights-card glass">
+                        <div class="insights-row">
+                            <div class="insight-item">
+                                <i class="ph-fill ph-lightbulb insight-icon"></i>
+                                <div>
+                                    <strong>Why DBSCAN Excels at Noise Discovery</strong>
+                                    <p>Unlike K-Means or Hierarchical Ward linkage which force every applicant into a cluster, DBSCAN allows sparse anomalies to remain unassigned (-1). <strong>93.9%</strong> of DBSCAN noise points correspond to genuine outlier students in ground-truth labels.</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <i class="ph-fill ph-chart-pie insight-icon" style="color: var(--accent-secondary);"></i>
+                                <div>
+                                    <strong>Placement Rate by Density Cohort</strong>
+                                    <p>Dense Core Students exhibit a <strong>65.3%</strong> placement rate. Isolated Noise candidates display irregular high-variance profiles (71.1% placed, with divergent test/CGPA combinations).</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <i class="ph-fill ph-sliders-horizontal insight-icon" style="color: var(--warning);"></i>
+                                <div>
+                                    <strong>Epsilon (&epsilon;) Sensitivity Dynamics</strong>
+                                    <p>At &epsilon;=1.44: data fragments into 4,960 noise points (over-strict). At &epsilon;=5.76: everything merges with 0 noise (under-strict). &epsilon;=2.88 perfectly captures the elbow.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PCA Dimensionality Reduction & Variance Exploration Section -->
+                <section class="pca-section" id="pca-dashboard-section">
+                    <div class="section-title-row">
+                        <div class="title-with-icon">
+                            <span class="section-icon-badge" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);"><i class="ph ph-cube"></i></span>
+                            <div>
+                                <h2>Principal Component Analysis (PCA) & Variance Exploration</h2>
+                                <p class="section-subtext">Unsupervised orthogonal dimensionality reduction projecting 20 academic and skill features into primary variance axes while capturing 76.1% geometric information</p>
+                            </div>
+                        </div>
+                        <div class="tag-badges">
+                            <span class="pill-badge pill-purple"><i class="ph ph-sparkle"></i> 76.1% Variance in 2D</span>
+                            <span class="pill-badge pill-blue"><i class="ph ph-intersect"></i> 85% Dim Reduction (80% in 3 Comps)</span>
+                            <span class="pill-badge pill-success"><i class="ph ph-check-circle"></i> Orthogonal Uncorrelated Axes</span>
+                        </div>
+                    </div>
+
+                    <!-- PCA Metrics KPI Grid -->
+                    <div class="pca-kpi-grid">
+                        <div class="pca-kpi-card glass">
+                            <span class="pca-kpi-label">PC1 Variance Explained</span>
+                            <h3 class="pca-kpi-value" style="color: var(--accent-primary);" id="pca-pc1-val">64.2%</h3>
+                            <span class="pca-kpi-sub">Academic History Factor (SGPA & CGPA)</span>
+                        </div>
+                        <div class="pca-kpi-card glass">
+                            <span class="pca-kpi-label">PC2 Variance Explained</span>
+                            <h3 class="pca-kpi-value" style="color: #8b5cf6;" id="pca-pc2-val">11.8%</h3>
+                            <span class="pca-kpi-sub">Applied Technical Factor (Coding & Aptitude)</span>
+                        </div>
+                        <div class="pca-kpi-card glass">
+                            <span class="pca-kpi-label">Combined 2D Coverage</span>
+                            <h3 class="pca-kpi-value" style="color: var(--success);" id="pca-pc1-pc2-val">76.1%</h3>
+                            <span class="pca-kpi-sub">PC1 + PC2 High-Fidelity 2D Embedding</span>
+                        </div>
+                        <div class="pca-kpi-card glass">
+                            <span class="pca-kpi-label">80% Variance Threshold</span>
+                            <h3 class="pca-kpi-value" style="color: #0ea5e9;" id="pca-thresh-80">3 Comps</h3>
+                            <span class="pca-kpi-sub">85% of Dimensions Safely Discarded</span>
+                        </div>
+                        <div class="pca-kpi-card glass">
+                            <span class="pca-kpi-label">95% High-Fidelity Milestone</span>
+                            <h3 class="pca-kpi-value" style="color: #f59e0b;" id="pca-thresh-95">10 Comps</h3>
+                            <span class="pca-kpi-sub">Half Dimensions Retain 96.0% Variance</span>
+                        </div>
+                    </div>
+
+                    <!-- PCA Graphs Showcase Grid -->
+                    <div class="pca-plots-grid">
+                        <!-- Plot 1: Scree Plot & Cumulative Variance Curve -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-chart-bar"></i> Variance Scree Plot & Cumulative Thresholds</h4>
+                                    <p>Bar chart of individual component variance alongside cumulative curve with 80%, 90%, and 95% threshold cross-points.</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/pca/scree_and_cumulative_variance.png" data-title="PCA Scree Plot & Cumulative Variance Curve" data-category="PCA Projections" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/pca/scree_and_cumulative_variance.png" data-title="PCA Scree Plot & Cumulative Variance Curve" data-category="PCA Projections">
+                                <img src="/plots/pca/scree_and_cumulative_variance.png" alt="PCA Scree Plot & Cumulative Variance Curve" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-chart-line-up"></i> 20 Orthogonal Components</span>
+                                <span class="badge-tag"><i class="ph ph-crosshair"></i> Knee at PC2 (76.1% Captured)</span>
+                            </div>
+                        </div>
+
+                        <!-- Plot 2: Feature Loadings Biplot -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-compass"></i> PCA Loadings Biplot: Latent Feature Mapping</h4>
+                                    <p>Vector directions showing how each of the 20 features maps onto PC1 (academic mastery) and PC2 (practical skills).</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/pca/loadings_biplot.png" data-title="PCA Feature Loadings Biplot (PC1 vs PC2)" data-category="PCA Projections" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/pca/loadings_biplot.png" data-title="PCA Feature Loadings Biplot (PC1 vs PC2)" data-category="PCA Projections">
+                                <img src="/plots/pca/loadings_biplot.png" alt="PCA Feature Loadings Biplot" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-circle"></i> Unit Correlation Circle</span>
+                                <span class="badge-tag"><i class="ph ph-git-fork"></i> Orthogonal Latent Axes</span>
+                            </div>
+                        </div>
+
+                        <!-- Plot 3: 2D Student Landscape by Placement Status -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-scatter-plot"></i> All 35,000 Students Projected in 2D Space</h4>
+                                    <p>Full cohort embedded onto PC1 and PC2, colored by actual placement status, showing clear separation along latent axes.</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/pca/pca_2d_by_placement.png" data-title="All 35,000 Students Projected onto PC1/PC2 by Placement Status" data-category="PCA Projections" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/pca/pca_2d_by_placement.png" data-title="All 35,000 Students Projected onto PC1/PC2 by Placement Status" data-category="PCA Projections">
+                                <img src="/plots/pca/pca_2d_by_placement.png" alt="2D Student Projection by Placement Status" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-users"></i> 35,000 Candidates</span>
+                                <span class="badge-tag"><i class="ph ph-trend-up"></i> 76.1% Total Variance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PCA Analytical Insights Drawer -->
+                    <div class="pca-insights-card glass">
+                        <div class="insights-row">
+                            <div class="insight-item">
+                                <i class="ph-fill ph-graduation-cap insight-icon" style="color: var(--accent-primary);"></i>
+                                <div>
+                                    <strong>PC1: Academic Performance Factor (64.2% Variance)</strong>
+                                    <p>Semester grades (SGPA Sem 2 through 8) and CGPA load with almost identical positive weights (<strong>+0.254 to +0.263</strong>) on PC1. This single axis explains nearly two-thirds of all individual student variance across the cohort.</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <i class="ph-fill ph-code insight-icon" style="color: #8b5cf6;"></i>
+                                <div>
+                                    <strong>PC2: Applied Problem-Solving & Technical Factor (11.8% Variance)</strong>
+                                    <p>PC2 isolates real-world technical readiness: <strong>CodingTestScore (+0.271)</strong>, <strong>AptitudeTestScore (+0.263)</strong>, <strong>Projects (+0.258)</strong>, and <strong>Internships (+0.246)</strong> strongly lead this axis, contrasting against early first-year SGPA (-0.245).</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <i class="ph-fill ph-check-circle insight-icon" style="color: var(--success);"></i>
+                                <div>
+                                    <strong>Mathematical Validation of 2D Cluster Visualizations</strong>
+                                    <p>Previous clustering modules (K-Means & DBSCAN) reduced high dimensions to 2D purely for charting. Because PC1 + PC2 capture <strong>76.1%</strong> of total data spread, 2D projections are mathematically justified and faithfully retain the core geometry.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Session 27: Anomaly & Outlier Intelligence Section -->
+                <section class="anomaly-section" id="anomaly-dashboard-section">
+                    <div class="section-title-row">
+                        <div class="title-with-icon">
+                            <span class="section-icon-badge" style="background: linear-gradient(135deg, #ef4444, #f97316);"><i class="ph ph-warning-octagon"></i></span>
+                            <div>
+                                <h2>Unsupervised Anomaly & Outlier Detection Suite</h2>
+                                <p class="section-subtext">Multi-algorithm intelligence isolating multidimensional candidate anomalies across 35,000 students via tree-partitioning, robust covariance, and density filters</p>
+                            </div>
+                        </div>
+                        <div class="tag-badges">
+                            <span class="pill-badge pill-red"><i class="ph ph-shield-warning"></i> 98.8% ROC-AUC Covariance</span>
+                            <span class="pill-badge pill-purple"><i class="ph ph-tree-structure"></i> 93.1% Isolation Forest</span>
+                            <span class="pill-badge pill-success"><i class="ph ph-check-circle"></i> 93.9% DBSCAN Precision</span>
+                        </div>
+                    </div>
+
+                    <!-- Anomaly Metrics KPI Grid -->
+                    <div class="anomaly-kpi-grid">
+                        <div class="anomaly-kpi-card glass">
+                            <span class="anomaly-kpi-label">Elliptic Envelope ROC-AUC</span>
+                            <h3 class="anomaly-kpi-value" style="color: #ef4444;" id="anomaly-ee-roc">98.8%</h3>
+                            <span class="anomaly-kpi-sub">FastMCD Robust Covariance Metric</span>
+                        </div>
+                        <div class="anomaly-kpi-card glass">
+                            <span class="anomaly-kpi-label">True Anomaly Recall</span>
+                            <h3 class="anomaly-kpi-value" style="color: #f97316;" id="anomaly-ee-recall">91.6%</h3>
+                            <span class="anomaly-kpi-sub">Ground Truth Anomalies Successfully Captured</span>
+                        </div>
+                        <div class="anomaly-kpi-card glass">
+                            <span class="anomaly-kpi-label">Isolation Forest ROC-AUC</span>
+                            <h3 class="anomaly-kpi-value" style="color: #6366f1;" id="anomaly-iso-roc">93.1%</h3>
+                            <span class="anomaly-kpi-sub">Full 35,000 Student Cohort (O(n log n))</span>
+                        </div>
+                        <div class="anomaly-kpi-card glass">
+                            <span class="anomaly-kpi-label">DBSCAN Pure Precision</span>
+                            <h3 class="anomaly-kpi-value" style="color: var(--success);" id="anomaly-db-precision">93.9%</h3>
+                            <span class="anomaly-kpi-sub">Zero False Alarm Spatial Filtering</span>
+                        </div>
+                        <div class="anomaly-kpi-card glass">
+                            <span class="anomaly-kpi-label">Identified Outlier Pool</span>
+                            <h3 class="anomaly-kpi-value" style="color: #0ea5e9;" id="anomaly-detected-count">1,225</h3>
+                            <span class="anomaly-kpi-sub">3.5% Cohort Contamination Level</span>
+                        </div>
+                    </div>
+
+                    <!-- Anomaly Graphs Showcase Grid -->
+                    <div class="anomaly-plots-grid">
+                        <!-- Plot 1: Anomaly Score Distribution -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-chart-line"></i> Anomaly Score Distribution & Cutoff Threshold</h4>
+                                    <p>Probability density of tree isolation scores separating typical candidate profiles from statistically extreme applicants.</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/anomaly_detection/01_anomaly_score_distribution.png" data-title="Anomaly Score Distribution & Cutoff Threshold" data-category="Anomaly Intelligence" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/anomaly_detection/01_anomaly_score_distribution.png" data-title="Anomaly Score Distribution & Cutoff Threshold" data-category="Anomaly Intelligence">
+                                <img src="/plots/anomaly_detection/01_anomaly_score_distribution.png" alt="Anomaly Score Distribution" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-git-commit"></i> 3.5% Contamination Cutoff</span>
+                                <span class="badge-tag"><i class="ph ph-sparkle"></i> 0.931 Full ROC-AUC</span>
+                            </div>
+                        </div>
+
+                        <!-- Plot 2: 2D PCA Anomaly Landscape -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-scatter-plot"></i> 2D PCA Multidimensional Anomaly Landscape</h4>
+                                    <p>Geometric projection onto PC1 (academic) & PC2 (applied skills) highlighting True Positives vs peripheral inliers.</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/anomaly_detection/02_pca_2d_anomaly_landscape.png" data-title="2D PCA Multidimensional Anomaly Landscape" data-category="Anomaly Intelligence" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/anomaly_detection/02_pca_2d_anomaly_landscape.png" data-title="2D PCA Multidimensional Anomaly Landscape" data-category="Anomaly Intelligence">
+                                <img src="/plots/anomaly_detection/02_pca_2d_anomaly_landscape.png" alt="2D PCA Anomaly Landscape" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-crosshair"></i> 35,000 Embedded Points</span>
+                                <span class="badge-tag"><i class="ph ph-circles-four"></i> Multi-Cluster Peripheries</span>
+                            </div>
+                        </div>
+
+                        <!-- Plot 3: Multi-Algorithm Benchmark Comparison -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-chart-bar-horizontal"></i> 5-Algorithm Detection Performance Benchmark</h4>
+                                    <p>Direct comparison of Elliptic Envelope, DBSCAN, Isolation Forest, One-Class SVM, and LOF across Precision, Recall, and F1.</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/anomaly_detection/03_algorithm_comparison_benchmark.png" data-title="5-Algorithm Detection Benchmark" data-category="Anomaly Intelligence" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/anomaly_detection/03_algorithm_comparison_benchmark.png" data-title="5-Algorithm Detection Benchmark" data-category="Anomaly Intelligence">
+                                <img src="/plots/anomaly_detection/03_algorithm_comparison_benchmark.png" alt="5-Algorithm Detection Benchmark" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-trophy"></i> Best F1: Elliptic (0.8571)</span>
+                                <span class="badge-tag"><i class="ph ph-target"></i> Best Precision: DBSCAN (93.9%)</span>
+                            </div>
+                        </div>
+
+                        <!-- Plot 4: Feature Deviation Archetypes -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-faders"></i> Feature Deviation Archetypes (Z-Score Shift)</h4>
+                                    <p>Statistical deviations revealing why anomalous students stand out (e.g. extreme project counts + low attendance).</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/anomaly_detection/04_anomaly_feature_profiles.png" data-title="Feature Deviation Archetypes" data-category="Anomaly Intelligence" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/anomaly_detection/04_anomaly_feature_profiles.png" data-title="Feature Deviation Archetypes" data-category="Anomaly Intelligence">
+                                <img src="/plots/anomaly_detection/04_anomaly_feature_profiles.png" alt="Feature Deviation Archetypes" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-chart-polar"></i> +1.16 std Projects Surge</span>
+                                <span class="badge-tag"><i class="ph ph-arrow-down-left"></i> -1.14 std Attendance Deficit</span>
+                            </div>
+                        </div>
+
+                        <!-- Plot 5: Contamination Sensitivity Curve -->
+                        <div class="plot-showcase-card glass">
+                            <div class="plot-card-header">
+                                <div>
+                                    <h4><i class="ph ph-sliders"></i> Contamination Sensitivity & Threshold Curve</h4>
+                                    <p>Precision/Recall tradeoff curves sweeping assumed contamination rates from 1% to 10% across models.</p>
+                                </div>
+                                <button class="btn-icon-zoom" data-plot="/plots/anomaly_detection/05_contamination_sensitivity.png" data-title="Contamination Sensitivity Curve" data-category="Anomaly Intelligence" title="Inspect Fullscreen">
+                                    <i class="ph ph-arrows-out"></i>
+                                </button>
+                            </div>
+                            <div class="plot-img-wrap" data-plot="/plots/anomaly_detection/05_contamination_sensitivity.png" data-title="Contamination Sensitivity Curve" data-category="Anomaly Intelligence">
+                                <img src="/plots/anomaly_detection/05_contamination_sensitivity.png" alt="Contamination Sensitivity Curve" loading="lazy">
+                                <div class="plot-hover-overlay">
+                                    <i class="ph ph-magnifying-glass-plus"></i>
+                                    <span>Click to Inspect High-Res</span>
+                                </div>
+                            </div>
+                            <div class="plot-card-footer">
+                                <span class="badge-tag"><i class="ph ph-check"></i> Robust at 3.5% Prior</span>
+                                <span class="badge-tag"><i class="ph ph-trend-up"></i> High Sensitivity Stability</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Anomaly Analytical Insights Drawer -->
+                    <div class="anomaly-insights-card glass">
+                        <div class="insights-row">
+                            <div class="insight-item">
+                                <i class="ph-fill ph-intersect insight-icon" style="color: #ef4444;"></i>
+                                <div>
+                                    <strong>Covariance Contradiction vs Univariate Outliers</strong>
+                                    <p>Students flagged as anomalies rarely have impossible individual values; rather, they exhibit <strong>multidimensional contradictions</strong>. An applicant with a 9.7 CGPA (+1.3 std), 5 practical projects (+1.16 std), and 3 internships, but only 54% class attendance (-1.14 std) violates normal institutional covariance.</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <i class="ph-fill ph-tree-view insight-icon" style="color: #6366f1;"></i>
+                                <div>
+                                    <strong>Why Tree Isolation Excels at Scale</strong>
+                                    <p>Isolation Forest recursively partitions random feature cuts in <strong>O(n log n)</strong> time. Because anomalous students live in sparse peripheral zones, tree paths to isolate them average under 6 splits, avoiding memory-expensive distance matrices across 35,000 records.</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <i class="ph-fill ph-shield-check insight-icon" style="color: var(--success);"></i>
+                                <div>
+                                    <strong>Multi-Tiered Consensus Deployment Strategy</strong>
+                                    <p>For production hiring pipelines, deploy a <strong>Tier 1 Isolation Forest</strong> filter for millisecond triage, followed by <strong>Tier 2 Mahalanobis Covariance Verification</strong> to eliminate false alarms before interview scheduling.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Data Leakage Prevention & Cross-Validation Architecture (Session 28) -->
+                <section class="leakage-section" id="leakage-dashboard-section">
+                    <div class="section-title-row">
+                        <div class="title-with-icon">
+                            <span class="section-icon-badge" style="background: linear-gradient(135deg, #10b981, #0d9488);"><i class="ph ph-shield-check"></i></span>
+                            <div>
+                                <h2>Data Leakage Prevention & Cross-Validation Architecture</h2>
+                                <p class="section-subtext">Session 28: Zero-Leakage machine learning pipeline, strictly isolated vault test sets, and 5×3 Nested Cross-Validation</p>
+                            </div>
+                        </div>
+                        <div class="header-badges-group">
+                            <span class="pill-badge pill-green"><i class="ph ph-lock-key"></i> Vault Holdout (20%)</span>
+                            <span class="pill-badge pill-blue"><i class="ph ph-arrows-clockwise"></i> Nested 5×3 CV</span>
+                            <span class="pill-badge pill-purple"><i class="ph ph-chart-line-up"></i> Hastie Proof</span>
+                        </div>
+                    </div>
+
+                    <!-- Leakage Hero KPI Cards -->
+                    <div class="leakage-kpi-grid">
+                        <div class="leakage-kpi-card">
+                            <span class="leakage-kpi-label">Vault Test Accuracy</span>
+                            <h3 class="leakage-kpi-value" style="color: #10b981;" id="leakage-vault-acc">89.5%</h3>
+                            <span class="leakage-kpi-sub">1,000 isolated holdout students (N=5,000 cohort)</span>
+                        </div>
+                        <div class="leakage-kpi-card">
+                            <span class="leakage-kpi-label">Vault Test ROC-AUC</span>
+                            <h3 class="leakage-kpi-value" style="color: #0ea5e9;" id="leakage-vault-auc">94.1%</h3>
+                            <span class="leakage-kpi-sub">True out-of-sample discriminative capacity</span>
+                        </div>
+                        <div class="leakage-kpi-card">
+                            <span class="leakage-kpi-label">Unbiased Nested CV F1</span>
+                            <h3 class="leakage-kpi-value" style="color: #8b5cf6;" id="leakage-nested-f1">92.1%</h3>
+                            <span class="leakage-kpi-sub">5-Fold Outer CV: 92.1% ± 0.6% (Zero Snooping)</span>
+                        </div>
+                        <div class="leakage-kpi-card">
+                            <span class="leakage-kpi-label">Tuning Snooping Delta</span>
+                            <h3 class="leakage-kpi-value" style="color: #f59e0b;" id="leakage-optimism-delta">+0.07%</h3>
+                            <span class="leakage-kpi-sub">Non-Nested: 92.21% vs Nested: 92.13%</span>
+                        </div>
+                        <div class="leakage-kpi-card">
+                            <span class="leakage-kpi-label">Noise Selection Proof</span>
+                            <h3 class="leakage-kpi-value" style="color: #ef4444;" id="leakage-noise-illusion">68.0% vs 50.5%</h3>
+                            <span class="leakage-kpi-sub">Hastie-Tibshirani Proof: Leaky (+17.5% illusion)</span>
+                        </div>
+                    </div>
+
+                    <!-- Leakage Architecture Flowchart Cards -->
+                    <div class="leakage-arch-grid">
+                        <div class="leakage-arch-card leaky-card">
+                            <div class="arch-card-header">
+                                <span class="arch-badge danger-badge"><i class="ph ph-warning-octagon"></i> Fatal Flaw</span>
+                                <h4>Leaky Pipeline (Anti-Pattern)</h4>
+                            </div>
+                            <p class="arch-desc">Applying <code>StandardScaler().fit_transform(X)</code> on the full dataset before splitting. Preprocessing statistics (μ, σ) absorb information from validation/test instances.</p>
+                            <ul class="arch-points">
+                                <li><i class="ph ph-x-circle text-danger"></i> Information leakage inflates cross-validation estimates</li>
+                                <li><i class="ph ph-x-circle text-danger"></i> Severe distribution shift and failure in real-world deployment</li>
+                                <li><i class="ph ph-x-circle text-danger"></i> Leaking feature selection yields 68% accuracy on pure random noise!</li>
+                            </ul>
+                        </div>
+
+                        <div class="leakage-arch-card vault-card">
+                            <div class="arch-card-header">
+                                <span class="arch-badge success-badge"><i class="ph ph-lock-simple"></i> Gold Standard</span>
+                                <h4>Workflow 1: Vault-Lock Pipeline</h4>
+                            </div>
+                            <p class="arch-desc">Immediately vaults 20% of data (1,000 students) before any processing. Training folds are standardized strictly inside <code>Pipeline</code> objects during Dev CV.</p>
+                            <ul class="arch-points">
+                                <li><i class="ph ph-check-circle text-success"></i> 4,000 student Dev set with 5-Fold Stratified Cross-Validation</li>
+                                <li><i class="ph ph-check-circle text-success"></i> Dev CV F1: 92.2% ± 1.2% | Dev CV ROC-AUC: 95.1% ± 0.5%</li>
+                                <li><i class="ph ph-check-circle text-success"></i> Vault Test Accuracy: 89.5% | Test F1: 92.1% | Test AUC: 94.1%</li>
+                            </ul>
+                        </div>
+
+                        <div class="leakage-arch-card nested-card">
+                            <div class="arch-card-header">
+                                <span class="arch-badge purple-badge"><i class="ph ph-arrows-merge"></i> Gold Standard</span>
+                                <h4>Workflow 2: 5×3 Nested CV</h4>
+                            </div>
+                            <p class="arch-desc">Outer 5 folds assess unbiased generalization error; inner 3-fold Grid Search optimizes regularization hyperparameter <code>C ∈ [0.001, 100]</code> independently per fold.</p>
+                            <ul class="arch-points">
+                                <li><i class="ph ph-check-circle text-purple"></i> Isolates hyperparameter tuning snooping bias completely</li>
+                                <li><i class="ph ph-check-circle text-purple"></i> Unbiased Nested CV Accuracy: 89.44% ± 0.67%</li>
+                                <li><i class="ph ph-check-circle text-purple"></i> Unbiased Nested CV ROC-AUC: 94.84% ± 0.89%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Benchmark Tables Section -->
+                    <div class="leakage-tables-row">
+                        <!-- Table 1: Leaky vs Leakage-Free Benchmark -->
+                        <div class="leakage-table-card">
+                            <div class="table-card-header">
+                                <h4><i class="ph ph-scales"></i> Leaky vs. Leakage-Free Pipeline Performance Benchmark</h4>
+                                <span class="badge-tag">5-Fold Stratified CV (N=5,000)</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Evaluation Metric</th>
+                                            <th>Leaky Pipeline (Contaminated)</th>
+                                            <th>Leakage-Free (Pipeline Encapsulation)</th>
+                                            <th>Optimism Gap</th>
+                                            <th>Deployment Integrity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Accuracy</strong></td>
+                                            <td>0.8954 ± 0.0135</td>
+                                            <td><strong>0.8954 ± 0.0135</strong></td>
+                                            <td><span class="tag-neutral">+0.0000</span></td>
+                                            <td><span class="tag-success"><i class="ph ph-check"></i> Generalizes</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Precision</strong></td>
+                                            <td>0.9067 ± 0.0111</td>
+                                            <td><strong>0.9067 ± 0.0111</strong></td>
+                                            <td><span class="tag-neutral">+0.0000</span></td>
+                                            <td><span class="tag-success"><i class="ph ph-check"></i> Generalizes</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Recall</strong></td>
+                                            <td>0.9363 ± 0.0210</td>
+                                            <td><strong>0.9363 ± 0.0210</strong></td>
+                                            <td><span class="tag-neutral">+0.0000</span></td>
+                                            <td><span class="tag-success"><i class="ph ph-check"></i> Generalizes</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>F1-Score</strong></td>
+                                            <td>0.9212 ± 0.0107</td>
+                                            <td><strong>0.9212 ± 0.0107</strong></td>
+                                            <td><span class="tag-neutral">+0.0000</span></td>
+                                            <td><span class="tag-success"><i class="ph ph-check"></i> Generalizes</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>ROC-AUC</strong></td>
+                                            <td>0.9487 ± 0.0178</td>
+                                            <td><strong>0.9487 ± 0.0178</strong></td>
+                                            <td><span class="tag-neutral">+0.0000</span></td>
+                                            <td><span class="tag-success"><i class="ph ph-check"></i> Generalizes</span></td>
+                                        </tr>
+                                        <tr class="highlight-row-danger">
+                                            <td><strong>Noise Feature Selection (Hastie Proof)</strong></td>
+                                            <td><strong class="text-danger">0.6800 (68.0%)</strong></td>
+                                            <td><strong class="text-success">0.5050 (50.5%)</strong></td>
+                                            <td><span class="tag-danger">+0.1750 (+17.5% Illusion)</span></td>
+                                            <td><span class="tag-danger"><i class="ph ph-warning"></i> Catastrophic Illusion</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Table 2: 5-Fold Outer Nested CV Breakdown -->
+                        <div class="leakage-table-card">
+                            <div class="table-card-header">
+                                <h4><i class="ph ph-tree-structure"></i> 5-Fold Outer Nested CV Breakdown</h4>
+                                <span class="badge-tag">Inner 3-Fold Grid Search</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Outer Fold</th>
+                                            <th>Optimal Regularization (C)</th>
+                                            <th>Inner CV Best F1</th>
+                                            <th>Outer Val F1</th>
+                                            <th>Outer Val Accuracy</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Outer Fold 1</strong></td>
+                                            <td><span class="code-pill">C = 0.1</span></td>
+                                            <td>0.9224</td>
+                                            <td><strong>0.9174</strong></td>
+                                            <td>89.10%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Outer Fold 2</strong></td>
+                                            <td><span class="code-pill">C = 0.1</span></td>
+                                            <td>0.9249</td>
+                                            <td><strong>0.9132</strong></td>
+                                            <td>88.50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Outer Fold 3</strong></td>
+                                            <td><span class="code-pill">C = 0.01</span></td>
+                                            <td>0.9222</td>
+                                            <td><strong>0.9215</strong></td>
+                                            <td>89.30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Outer Fold 4</strong></td>
+                                            <td><span class="code-pill">C = 0.01</span></td>
+                                            <td>0.9208</td>
+                                            <td><strong>0.9299</strong></td>
+                                            <td>90.50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Outer Fold 5</strong></td>
+                                            <td><span class="code-pill">C = 0.01</span></td>
+                                            <td>0.9228</td>
+                                            <td><strong>0.9248</strong></td>
+                                            <td>89.80%</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="table-summary-row">
+                                            <td><strong>Unbiased Mean ± Std</strong></td>
+                                            <td><em>Stabilized (C: 0.01 - 0.1)</em></td>
+                                            <td>0.9226 ± 0.0013</td>
+                                            <td><strong>0.9213 ± 0.0058</strong></td>
+                                            <td><strong>89.44% ± 0.67%</strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diagnostic Plots Gallery for Leakage -->
+                    <div class="leakage-plots-header">
+                        <h4><i class="ph ph-image-square"></i> Generated Diagnostic Visualizations</h4>
+                        <span class="badge-tag">Click any plot for high-resolution inspection</span>
+                    </div>
+
+                    <div class="leakage-plots-grid">
+                        <div class="leakage-plot-card" onclick="openPlotLightbox('/plots/data_leakage/01_leakage_concept_architecture.png', 'Leakage Concept Architecture', 'Data Leakage & Cross-Validation', 'Architectural comparison between Naive Leaky Pipeline, Vault-Lock Workflow, and Nested Cross-Validation.')">
+                            <div class="plot-img-wrap">
+                                <img src="/plots/data_leakage/01_leakage_concept_architecture.png" alt="Leakage Concept Architecture" loading="lazy">
+                                <div class="plot-hover-overlay"><i class="ph ph-magnifying-glass-plus"></i> Inspect Architecture</div>
+                            </div>
+                            <div class="plot-card-body">
+                                <h5>01. Architectural Pipeline Diagram</h5>
+                                <p>Contrasting Fatal Flaw Leaky Pipeline, Vault-Lock Holdout (Image 2), and Nested CV (Image 1).</p>
+                            </div>
+                        </div>
+
+                        <div class="leakage-plot-card" onclick="openPlotLightbox('/plots/data_leakage/02_leaky_vs_leakage_free_benchmark.png', 'Leaky vs. Leakage-Free Benchmark', 'Data Leakage & Cross-Validation', 'Benchmark comparison across 5 performance metrics and Hastie-Tibshirani feature selection on pure noise.')">
+                            <div class="plot-img-wrap">
+                                <img src="/plots/data_leakage/02_leaky_vs_leakage_free_benchmark.png" alt="Leaky vs Leakage-Free Benchmark" loading="lazy">
+                                <div class="plot-hover-overlay"><i class="ph ph-magnifying-glass-plus"></i> Inspect Benchmark</div>
+                            </div>
+                            <div class="plot-card-body">
+                                <h5>02. Benchmark & Noise Selection Proof</h5>
+                                <p>5 metric comparison + proof that leaky feature selection invents 68% accuracy on pure Gaussian noise.</p>
+                            </div>
+                        </div>
+
+                        <div class="leakage-plot-card" onclick="openPlotLightbox('/plots/data_leakage/03_distribution_contamination_proof.png', 'Distribution Contamination Proof', 'Data Leakage & Cross-Validation', 'Empirical demonstration of mean and standard deviation shifts when test data leaks into StandardScaler.')">
+                            <div class="plot-img-wrap">
+                                <img src="/plots/data_leakage/03_distribution_contamination_proof.png" alt="Distribution Contamination Proof" loading="lazy">
+                                <div class="plot-hover-overlay"><i class="ph ph-magnifying-glass-plus"></i> Inspect Contamination</div>
+                            </div>
+                            <div class="plot-card-body">
+                                <h5>03. Distribution Contamination Proof</h5>
+                                <p>Empirical proof of μ and σ distortions demonstrating test set contamination in standardized feature space.</p>
+                            </div>
+                        </div>
+
+                        <div class="leakage-plot-card" onclick="openPlotLightbox('/plots/data_leakage/04_nested_cv_outer_vs_inner_performance.png', 'Nested CV Outer vs Inner Performance', 'Data Leakage & Cross-Validation', 'Outer fold validation F1 with 95% confidence intervals and inner CV hyperparameter tuning stability.')">
+                            <div class="plot-img-wrap">
+                                <img src="/plots/data_leakage/04_nested_cv_outer_vs_inner_performance.png" alt="Nested CV Performance" loading="lazy">
+                                <div class="plot-hover-overlay"><i class="ph ph-magnifying-glass-plus"></i> Inspect Nested CV</div>
+                            </div>
+                            <div class="plot-card-body">
+                                <h5>04. Nested CV Outer vs. Inner Performance</h5>
+                                <p>Fold-by-fold outer F1 scores (±2σ confidence intervals) and hyperparameter stability across folds.</p>
+                            </div>
+                        </div>
+
+                        <div class="leakage-plot-card" onclick="openPlotLightbox('/plots/data_leakage/05_vault_lock_test_evaluation.png', 'Vault-Lock Test Evaluation', 'Data Leakage & Cross-Validation', 'Dev CV fold consistency, holdout test confusion matrix (N=1,000), and Vault ROC curve (AUC=0.9411).')">
+                            <div class="plot-img-wrap">
+                                <img src="/plots/data_leakage/05_vault_lock_test_evaluation.png" alt="Vault-Lock Test Evaluation" loading="lazy">
+                                <div class="plot-hover-overlay"><i class="ph ph-magnifying-glass-plus"></i> Inspect Vault Evaluation</div>
+                            </div>
+                            <div class="plot-card-body">
+                                <h5>05. Vault-Lock Holdout Test Evaluation</h5>
+                                <p>3-panel dashboard: Dev CV fold scores, Vault holdout confusion matrix (N=1,000), and ROC curve (AUC=0.9411).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Production Engineering Insights -->
+                    <div class="leakage-insights-card">
+                        <div class="insights-card-header">
+                            <i class="ph-fill ph-lightbulb text-warning"></i>
+                            <h4>Engineering Best Practices: Zero-Leakage Machine Learning</h4>
+                        </div>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <i class="ph-fill ph-lock-key insight-icon" style="color: #10b981;"></i>
+                                <div>
+                                    <strong>The Vault-Lock Rule</strong>
+                                    <p>Immediately quarantine a fixed test set (20%) upon ingestion. No estimator, imputer, or transformer may compute statistics on this partition until final model certification.</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <i class="ph-fill ph-funnel insight-icon" style="color: #0ea5e9;"></i>
+                                <div>
+                                    <strong>Scikit-Learn Pipeline Encapsulation</strong>
+                                    <p>Always encapsulate preprocessing (scaling, PCA, one-hot encoding) inside a <code>Pipeline</code>. During cross-validation, transformers will only compute parameters on the active training fold.</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <i class="ph-fill ph-chart-line-down insight-icon" style="color: #ef4444;"></i>
+                                <div>
+                                    <strong>Hastie & Tibshirani Feature Selection Warning</strong>
+                                    <p>Selecting features on the full dataset before splitting creates an artificial statistical link between features and targets. On pure Gaussian random noise, leaky feature selection produces <strong>68% accuracy</strong> out of thin air, whereas leakage-free validation reveals the honest <strong>50.5% random guess baseline</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Comprehensive Master Plots Explorer in Dashboard -->
+                <section class="master-plots-section" id="dashboard-plots-section">
+                    <div class="section-title-row">
+                        <div class="title-with-icon">
+                            <span class="section-icon-badge" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);"><i class="ph ph-images"></i></span>
+                            <div>
+                                <h2>All Project Plots & Diagnostic Gallery</h2>
+                                <p class="section-subtext">Interactive visual library of all 227+ machine learning, clustering, PCA, and exploratory diagnostic plots</p>
+                            </div>
+                        </div>
+                        <span class="pill-badge pill-purple" id="dashboard-plots-counter"><i class="ph ph-sparkle"></i> 227 Diagnostic Plots</span>
+                    </div>
+
+                    <!-- Explorer Control Bar: Category Pills + Search + Limit -->
+                    <div class="plots-control-bar glass">
+                        <div class="category-pills-wrap" id="dashboard-category-pills">
+                            <button class="cat-pill active" data-cat="all">🌟 All <span class="cat-pill-badge" id="count-all">...</span></button>
+                            <button class="cat-pill" data-cat="eda_overview">📊 Overview EDA & Heatmaps <span class="cat-pill-badge" id="count-eda_overview">...</span></button>
+                            <button class="cat-pill" data-cat="academic">🎓 Academic (CGPA/SGPA) <span class="cat-pill-badge" id="count-academic">...</span></button>
+                            <button class="cat-pill" data-cat="skills">💻 Skills & Technical <span class="cat-pill-badge" id="count-skills">...</span></button>
+                            <button class="cat-pill" data-cat="demographics">👥 Demographics & Tiers <span class="cat-pill-badge" id="count-demographics">...</span></button>
+                            <button class="cat-pill" data-cat="outcomes">🎯 Placement Outcomes <span class="cat-pill-badge" id="count-outcomes">...</span></button>
+                            <button class="cat-pill" data-cat="dbscan">🔍 DBSCAN & Hierarchical <span class="cat-pill-badge" id="count-dbscan">...</span></button>
+                            <button class="cat-pill" data-cat="pca">📐 PCA Projections <span class="cat-pill-badge" id="count-pca">...</span></button>
+                            <button class="cat-pill" data-cat="anomaly">🚨 Anomaly & Outliers <span class="cat-pill-badge" id="count-anomaly">...</span></button>
+                            <button class="cat-pill" data-cat="classification">📈 Confusion Matrices <span class="cat-pill-badge" id="count-classification">...</span></button>
+                            <button class="cat-pill" data-cat="regression">💵 Salary Regression <span class="cat-pill-badge" id="count-regression">...</span></button>
+                            <button class="cat-pill" data-cat="other_eda">📁 General EDA <span class="cat-pill-badge" id="count-other_eda">...</span></button>
+                        </div>
+                        <div class="plots-toolbar-right">
+                            <div class="limit-select-wrap">
+                                <span>Display:</span>
+                                <select id="dashboard-plots-limit" class="limit-select">
+                                    <option value="24" selected>24 Plots</option>
+                                    <option value="48">48 Plots</option>
+                                    <option value="96">96 Plots</option>
+                                    <option value="all">View All (222)</option>
+                                </select>
+                            </div>
+                            <div class="plots-search-box">
+                                <i class="ph ph-magnifying-glass search-icon"></i>
+                                <input type="text" id="dashboard-plots-search" placeholder="Search any plot (e.g. Correlation, Dendrogram, Residual, PCA)..." class="plots-search-input">
+                                <button id="clear-plots-search" class="clear-search-btn" title="Clear Search" style="display: none;"><i class="ph ph-x"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Master Plots Responsive Grid -->
+                    <div class="master-plots-grid" id="dashboard-plots-grid">
+                        <!-- Loaded dynamically via JavaScript -->
+                    </div>
+
+                    <!-- Pagination / Load More Bar -->
+                    <div class="load-more-wrap" id="dashboard-load-more-wrap">
+                        <button id="dashboard-load-more-btn" class="btn btn-outline"><i class="ph ph-plus-circle"></i> Load More Plots</button>
+                        <button id="dashboard-view-all-btn" class="btn btn-outline" style="margin-left: 8px;"><i class="ph ph-squares-four"></i> View All Plots</button>
+                        <span class="showing-text" id="dashboard-showing-text">Showing 24 of 222 plots</span>
+                    </div>
+                </section>
             </div>
 
-            <!-- Students View -->
+            <!-- 2. AI Predictor & Career Coach View (NEW FEATURE) -->
+            <div id="predictor-view" class="view-section" style="display: none;">
+                <header class="flex-header">
+                    <div>
+                        <h1>🧠 AI Placement Predictor & Career Coach</h1>
+                        <p>Live machine learning inference, salary forecasting, and skill gap benchmark analysis</p>
+                    </div>
+                    <div class="quick-demos">
+                        <span style="font-size: 13px; color: var(--text-muted); margin-right: 8px;">1-Click Demo Profiles:</span>
+                        <button class="btn btn-sm btn-outline demo-btn" data-cgpa="8.8" data-coding="85" data-aptitude="86" data-mock="80" data-attendance="92" data-internships="2" data-projects="3">🌟 High Performer</button>
+                        <button class="btn btn-sm btn-outline demo-btn" data-cgpa="7.3" data-coding="62" data-aptitude="68" data-mock="62" data-attendance="80" data-internships="1" data-projects="2">⚖️ Balanced</button>
+                        <button class="btn btn-sm btn-outline demo-btn" data-cgpa="5.5" data-coding="26" data-aptitude="45" data-mock="32" data-attendance="60" data-internships="0" data-projects="1">⚠️ At-Risk</button>
+                    </div>
+                </header>
+
+                <div class="predictor-layout">
+                    <!-- Form Controls -->
+                    <div class="card glass predictor-form-card">
+                        <h3><i class="ph ph-sliders"></i> Student Skill Inputs</h3>
+                        <form id="ai-predict-form">
+                            <div class="slider-group">
+                                <div class="slider-header">
+                                    <label>CGPA (0 - 10)</label>
+                                    <span class="slider-val" id="val-cgpa">7.5</span>
+                                </div>
+                                <input type="range" id="input-cgpa" min="5.0" max="10.0" step="0.1" value="7.5" class="custom-range">
+                            </div>
+
+                            <div class="slider-group">
+                                <div class="slider-header">
+                                    <label>Coding Test Score (%)</label>
+                                    <span class="slider-val" id="val-coding">65%</span>
+                                </div>
+                                <input type="range" id="input-coding" min="0" max="100" step="1" value="65" class="custom-range">
+                            </div>
+
+                            <div class="slider-group">
+                                <div class="slider-header">
+                                    <label>Aptitude Test Score (%)</label>
+                                    <span class="slider-val" id="val-aptitude">70%</span>
+                                </div>
+                                <input type="range" id="input-aptitude" min="0" max="100" step="1" value="70" class="custom-range">
+                            </div>
+
+                            <div class="slider-group">
+                                <div class="slider-header">
+                                    <label>Mock Interview Score (%)</label>
+                                    <span class="slider-val" id="val-mock">65%</span>
+                                </div>
+                                <input type="range" id="input-mock" min="0" max="100" step="1" value="65" class="custom-range">
+                            </div>
+
+                            <div class="slider-group">
+                                <div class="slider-header">
+                                    <label>Attendance Rate (%)</label>
+                                    <span class="slider-val" id="val-attendance">85%</span>
+                                </div>
+                                <input type="range" id="input-attendance" min="40" max="100" step="1" value="85" class="custom-range">
+                            </div>
+
+                            <div class="form-row-grid">
+                                <div class="form-field">
+                                    <label>Internships</label>
+                                    <input type="number" id="input-internships" min="0" max="5" value="1" class="form-input">
+                                </div>
+                                <div class="form-field">
+                                    <label>Projects</label>
+                                    <input type="number" id="input-projects" min="0" max="10" value="2" class="form-input">
+                                </div>
+                                <div class="form-field">
+                                    <label>College Tier</label>
+                                    <select id="input-tier" class="form-input">
+                                        <option value="Tier1">Tier 1</option>
+                                        <option value="Tier2" selected>Tier 2</option>
+                                        <option value="Tier3">Tier 3</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label>History of Backlogs</label>
+                                    <select id="input-backlogs" class="form-input">
+                                        <option value="No" selected>No Backlogs</option>
+                                        <option value="Yes">Has Backlogs</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 20px;">
+                                <i class="ph ph-sparkle"></i> Run AI Prediction & Analysis
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Prediction Results View -->
+                    <div class="predictor-results-container">
+                        <!-- Top Summary Cards -->
+                        <div class="pred-summary-grid">
+                            <div class="pred-kpi-card glass">
+                                <span class="pred-kpi-label">Placement Probability</span>
+                                <div class="radial-wrap">
+                                    <div class="radial-ring" id="prob-ring">
+                                        <span id="pred-prob-val">--%</span>
+                                    </div>
+                                </div>
+                                <span class="pred-status-badge badge-neutral" id="pred-status-badge">Awaiting Prediction</span>
+                            </div>
+
+                            <div class="pred-kpi-card glass">
+                                <span class="pred-kpi-label">Estimated Starting Salary</span>
+                                <h2 class="pred-salary-val" id="pred-salary-val">-- LPA</h2>
+                                <span class="pred-subtext">Linear Regression Output</span>
+                                <div class="persona-tag" id="pred-persona-tag">Cluster: Calculating...</div>
+                            </div>
+                        </div>
+
+                        <!-- Radar Chart & Company Fit -->
+                        <div class="pred-charts-grid">
+                            <div class="card glass">
+                                <h3><i class="ph ph-radar"></i> Skill Benchmark vs Placed Average</h3>
+                                <div class="chart-container radar-container">
+                                    <canvas id="skillsRadarChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="card glass">
+                                <h3><i class="ph ph-buildings"></i> Company Tier Fit Readiness</h3>
+                                <div class="tier-fit-list">
+                                    <div class="tier-fit-item">
+                                        <div class="tier-header">
+                                            <span>🚀 Super Dream Companies (15+ LPA)</span>
+                                            <strong id="fit-super-dream">--%</strong>
+                                        </div>
+                                        <div class="progress-bar-bg"><div class="progress-bar-fill super-dream" id="bar-super-dream" style="width: 0%;"></div></div>
+                                    </div>
+
+                                    <div class="tier-fit-item">
+                                        <div class="tier-header">
+                                            <span>💼 Dream Companies (8 - 14 LPA)</span>
+                                            <strong id="fit-dream">--%</strong>
+                                        </div>
+                                        <div class="progress-bar-bg"><div class="progress-bar-fill dream" id="bar-dream" style="width: 0%;"></div></div>
+                                    </div>
+
+                                    <div class="tier-fit-item">
+                                        <div class="tier-header">
+                                            <span>🏢 Core / Service IT (3.5 - 7 LPA)</span>
+                                            <strong id="fit-core">--%</strong>
+                                        </div>
+                                        <div class="progress-bar-bg"><div class="progress-bar-fill core" id="bar-core" style="width: 0%;"></div></div>
+                                    </div>
+                                </div>
+
+                                <!-- AI Career Recommendations -->
+                                <div class="ai-coaching-box" id="ai-coaching-box">
+                                    <h4><i class="ph ph-lightbulb"></i> AI Career Coach Insights</h4>
+                                    <ul id="ai-tips-list">
+                                        <li>Adjust your profile scores and click 'Run AI Prediction' to get personalized career guidance.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Students View -->
             <div id="students-view" class="view-section" style="display: none;">
                 <header class="flex-header">
                     <div>
-                        <h1>Students List</h1>
-                        <p>Detailed view of student placement records</p>
+                        <h1>Student Records</h1>
+                        <p>Detailed breakdown of students dataset</p>
                     </div>
-                    <div class="filter-controls">
-                        <select id="data-filter" class="form-select">
-                            <option value="all">All Students</option>
-                            <option value="cleaned">Cleaned Data (No Missing)</option>
-                            <option value="missing">Missing Values Data</option>
+                    <div class="filters">
+                        <select id="data-filter" class="form-input">
+                            <option value="all">All Records</option>
+                            <option value="cleaned">Cleaned Records (No Missing)</option>
+                            <option value="missing">Records with Missing Values</option>
                         </select>
                     </div>
                 </header>
-                
-                <div class="table-container glass">
+
+                <div class="table-container card glass">
                     <div class="table-responsive">
-                        <table id="students-table">
+                        <table>
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -136,12 +1150,35 @@
                 </div>
             </div>
 
-            <!-- Reports View -->
+            <!-- 4. Reports View -->
             <div id="reports-view" class="view-section" style="display: none;">
-                <header>
-                    <h1>Reports Gallery</h1>
-                    <p>All generated exploratory data analysis plots</p>
+                <header class="flex-header">
+                    <div>
+                        <h1>Reports & Plots Gallery</h1>
+                        <p>Browse all 222+ generated exploratory data analysis, machine learning diagnostics, clustering, and PCA projections</p>
+                    </div>
+                    <span class="pill-badge pill-purple" id="gallery-total-badge"><i class="ph ph-sparkle"></i> 222 Plots</span>
                 </header>
+
+                <div class="plots-control-bar glass" style="margin-top: 15px;">
+                    <div class="category-pills-wrap" id="gallery-category-pills">
+                        <button class="cat-pill active" data-cat="all">🌟 All <span class="cat-pill-badge" id="gcount-all">...</span></button>
+                        <button class="cat-pill" data-cat="eda_overview">📊 Overview EDA <span class="cat-pill-badge" id="gcount-eda_overview">...</span></button>
+                        <button class="cat-pill" data-cat="academic">🎓 Academic <span class="cat-pill-badge" id="gcount-academic">...</span></button>
+                        <button class="cat-pill" data-cat="skills">💻 Skills <span class="cat-pill-badge" id="gcount-skills">...</span></button>
+                        <button class="cat-pill" data-cat="demographics">👥 Demographics <span class="cat-pill-badge" id="gcount-demographics">...</span></button>
+                        <button class="cat-pill" data-cat="outcomes">🎯 Outcomes <span class="cat-pill-badge" id="gcount-outcomes">...</span></button>
+                        <button class="cat-pill" data-cat="dbscan">🔍 Clustering <span class="cat-pill-badge" id="gcount-dbscan">...</span></button>
+                        <button class="cat-pill" data-cat="pca">📐 PCA <span class="cat-pill-badge" id="gcount-pca">...</span></button>
+                        <button class="cat-pill" data-cat="anomaly">🚨 Anomaly <span class="cat-pill-badge" id="gcount-anomaly">...</span></button>
+                        <button class="cat-pill" data-cat="classification">📈 Confusion <span class="cat-pill-badge" id="gcount-classification">...</span></button>
+                        <button class="cat-pill" data-cat="regression">💵 Regression <span class="cat-pill-badge" id="gcount-regression">...</span></button>
+                    </div>
+                    <div class="plots-search-box">
+                        <i class="ph ph-magnifying-glass search-icon"></i>
+                        <input type="text" id="plot-search" placeholder="Search gallery (e.g. CGPA, Dendrogram, Boxplot)..." class="plots-search-input">
+                    </div>
+                </div>
                 
                 <div class="gallery-grid" id="plots-gallery">
                     <!-- Images injected by JS -->
@@ -149,6 +1186,29 @@
             </div>
 
         </main>
+    </div>
+
+    <!-- High-Resolution Plot Zoom Lightbox Modal -->
+    <div id="plot-lightbox-modal" class="plot-lightbox-modal" style="display: none;">
+        <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+        <div class="lightbox-dialog glass">
+            <div class="lightbox-header">
+                <div>
+                    <span class="lightbox-category-badge" id="lightbox-category">Diagnostic Plot</span>
+                    <h3 id="lightbox-title">Plot Title</h3>
+                </div>
+                <div class="lightbox-actions">
+                    <a id="lightbox-download" href="#" download class="btn-icon-action" title="Download High-Res"><i class="ph ph-download-simple"></i></a>
+                    <button class="lightbox-close-btn" id="lightbox-close" title="Close"><i class="ph ph-x"></i></button>
+                </div>
+            </div>
+            <div class="lightbox-body">
+                <img id="lightbox-img" src="" alt="Zoomed Plot">
+            </div>
+            <div class="lightbox-footer">
+                <p id="lightbox-description">Interactive diagnostic plot visualization.</p>
+            </div>
+        </div>
     </div>
 
     <!-- Chart.js -->
